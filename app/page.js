@@ -1,11 +1,11 @@
-import Head from 'next/head'
+export const metadata = {
+  title: 'فروشگاه اینترنتی تکنولایف',
+  description: 'وب‌سایت فروشگاه اینترنتی تکنولایف'
+}
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>فروشگاه تکنولایف</title>
-      </Head>
       <h1>Home</h1>
     </>
   )
