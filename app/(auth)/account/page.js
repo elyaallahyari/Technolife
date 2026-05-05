@@ -1,6 +1,11 @@
 import Image from 'next/image'
 import Logo from '@/public/media/logo_new.svg'
 
+export const metadata = {
+  title: 'ورود | ثبت‌نام فروشگاه تکنولایف',
+  description: 'ورود به فروشگاه اینترنتی تکنولایف'
+}
+
 export default async function Account() {
   return (
     <div className="flex flex-col items-center justify-center h-screen w-full">
@@ -8,7 +13,6 @@ export default async function Account() {
         <Image alt="Technolife logo" width={184} height={50} priority src={Logo}></Image>
         <div className="mb-[55px] mt-8 flex flex-col items-center justify-center gap-4 gap-[42px] tall:mb-[50px] tall:mt-[92px]">
           <div className="font-medium text-[22px] flex items-center gap-3">
-            {' '}
             <span>ورود</span>
             <span className="flex w-0 h-[18px] border-l-2 border-gray-700 sm:border-l-[1.5px"></span>
             <span>ثبت‌نام</span>
