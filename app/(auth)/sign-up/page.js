@@ -2,11 +2,11 @@ import Image from 'next/image'
 import Logo from '@/public/media/logo_new.svg'
 
 export const metadata = {
-  title: 'ورود | ثبت‌نام فروشگاه تکنولایف',
+  title: 'ورود - ثبت‌نام | فروشگاه تکنولایف',
   description: 'ورود به فروشگاه اینترنتی تکنولایف'
 }
 
-export default async function Account() {
+export default async function SignUp() {
   return (
     <div className="flex flex-col items-center justify-center h-screen w-full">
       <div className="flex flex-col items-center justify-center h-full! p-4 pt-8 w-[452px] pb-8  2xl:h-screen! 2xl:p-[42px] 2xl::shadow-1800">
