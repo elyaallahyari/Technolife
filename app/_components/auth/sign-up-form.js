@@ -49,6 +49,15 @@ export default function SignUpForm() {
       >
         {isMutating ? 'در حال بررسی' : 'ادامه'}
       </button>
+
+      <div>
+        <p className="pt-4 text-[11px] font-medium w-full text-gray-500 sm:pt-6">
+          ورود | ثبت‌نام شما به معنای پذیرش
+          <span className="text-blue-300 cursor-pointer">&nbsp;قوانین و مقررات&nbsp;</span> و
+          <span className="text-blue-300 cursor-pointer">&nbsp;حریم خصوصی کاربران&nbsp;</span>
+          تکنولایف است.
+        </p>
+      </div>
     </form>
   )
 }

@@ -26,14 +26,6 @@ export default async function SignIn() {
           <p className="font-bold text-sm">خوش اومدی :)</p>
         </div>
         <SignInForm />
-        <div>
-          <p className="pt-4 text-[11px] font-medium w-full text-gray-500 sm:pt-6 2xl:fixed 2xl:bottom-10.5 2xl:px-4">
-            ورود | ثبت‌نام شما به معنای پذیرش
-            <span className="text-blue-300 cursor-pointer">&nbsp;قوانین و مقررات&nbsp;</span> و
-            <span className="text-blue-300 cursor-pointer">&nbsp;حریم خصوصی کاربران&nbsp;</span>
-            تکنولایف است.
-          </p>
-        </div>
       </div>
     </div>
   )
