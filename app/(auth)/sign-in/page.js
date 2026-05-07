@@ -1,9 +1,7 @@
 import Image from 'next/image'
-// import Logo from '@/public/media/logo_new.svg'
-import Logo from '../../../public/media/logo_new.svg'
+import Logo from '@/public/media/logo_new.svg'
 import Link from 'next/link'
-// import SignInForm from '@/app/_components/auth/sign-in-form'
-import SignInForm from '../../_components/auth/sign-in-form'
+import SignInForm from '@/app/_components/auth/sign-in-form'
 
 export const metadata = {
   title: 'ورود | فروشگاه تکنولایف',
