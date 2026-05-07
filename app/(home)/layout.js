@@ -1,4 +1,5 @@
 import AdvertisingBanner from '@/app/_components/home/header/AdvertisingBanner'
+import MainHeader from '@/app/_components/home/header/MainHeader'
 
 export default function HomeLayout({ children }) {
   return (
@@ -6,7 +7,10 @@ export default function HomeLayout({ children }) {
       <section>
         <AdvertisingBanner />
       </section>
-      {children}
+      <section>
+        <MainHeader />
+      </section>
+      <div>{children}</div>
     </>
   )
 }
