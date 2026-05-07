@@ -8,7 +8,9 @@ export default function MainHeader() {
   return (
     <header className="flex flex-row items-center justify-between p-6 bg-white">
       <div className="flex flex-row items-center justify-start w-full gap-9">
-        <Image src={Logo} width={110} height={42} alt="Logo of Technolife" priority></Image>
+        <Link href={'/'}>
+          <Image src={Logo} width={110} height={42} alt="Logo of Technolife" priority></Image>
+        </Link>
         <div className="w-full relative">
           <CiSearch className="text-gray-400 w-8 h-8 absolute top-3 right-3" />
           <input
