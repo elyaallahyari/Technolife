@@ -6,7 +6,7 @@ import { IoCartOutline } from 'react-icons/io5'
 
 export default function MainHeader() {
   return (
-    <header className="flex flex-row items-center justify-between p-6 bg-white">
+    <header className="flex flex-row items-center justify-between p-6 bg-white sticky top-0">
       <div className="flex flex-row items-center justify-start w-full gap-9">
         <Link href={'/'}>
           <Image src={Logo} width={110} height={42} alt="Logo of Technolife" priority></Image>
