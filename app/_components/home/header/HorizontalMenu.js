@@ -4,7 +4,6 @@ import { TfiWallet } from 'react-icons/tfi'
 import { ImGift } from 'react-icons/im'
 import { CiShoppingBasket } from 'react-icons/ci'
 import { RxTimer } from 'react-icons/rx'
-import Image from 'next/image'
 import Link from 'next/link'
 
 export default function HorizontalMenu() {
@@ -17,7 +16,6 @@ export default function HorizontalMenu() {
           <span className="w-5 h-0 border border-b"></span>
         </div>
         دسته‌بندی محصولات
-        <Image src={RxTimer} alt="f" width={10} hidden={10} />
       </div>
 
       <Link href={'/'} className="flex flex-row justify-center items-center gap-2 align-middle">
