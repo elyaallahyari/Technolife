@@ -2,6 +2,21 @@
 import Image from 'next/image'
 import Logo from '@/public/media/white_logo.svg'
 import { FaChevronUp } from 'react-icons/fa'
+import TechnoPay from '@/public/media/technopay.webp'
+import TechnoGold from '@/public/media/technogold.webp'
+import TechnoExpress from '@/public/media/technoexpress.webp'
+import Enamad_1 from '@/public/media/enamad_1.png'
+import Enamad_2 from '@/public/media/enamad_2.svg'
+import Enamad_3 from '@/public/media/enamad_3.webp'
+import Enamad_4 from '@/public/media/enamad_4.webp'
+import Enamad_5 from '@/public/media/enamad_5.webp'
+import Bazzar from '@/public/media/Bazzar.webp'
+import Sibapp from '@/public/media/Sibapp.webp'
+import Mayket from '@/public/media/Mayket.webp'
+import Instagram from '@/public/media/instagram.webp'
+import Aparat from '@/public/media/aparat.webp'
+import Telegram from '@/public/media/telegram.webp'
+import Youtube from '@/public/media/youtube.webp'
 
 const FirstUl = [
   {
@@ -320,6 +335,98 @@ export default function Footerr() {
         </section>
 
         <hr className="w-full" />
+
+        <section className="grid grid-cols-1 md:grid-cols-3 pt-7.5 w-full">
+          <div className="flex flex-col pt-6">
+            <p className="text-xl font-medium">ارتباط با ما</p>
+            <div className="flex flex-row gap-3 w-full mt-4">
+              <div className="flex flex-row gap-3 w-full">
+                <div>تلفن:</div>
+                <div className="flex flex-row">
+                  <span className="flex flex-row-reverse items-center">021-62816000</span>
+                  <span className="mx-1">-</span>
+                  <span className="flex flex-row-reverse items-center">021-91077500</span>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-row gap-3 w-full mt-2">
+              <p>ایمیل:</p>
+              <span>info@technolife.com</span>
+            </div>
+          </div>
+
+          <div className="flex flex-col pt-6">
+            <p className="text-xl font-medium">شبکه‌های اجتماعی</p>
+            <div className="flex gap-4 lg:gap-8 mt-4">
+              <div>
+                <Image src={Instagram} alt="" width={32} height={32}></Image>
+              </div>
+              <div>
+                <Image src={Aparat} alt="" width={32} height={32}></Image>
+              </div>
+              <div>
+                <Image src={Telegram} alt="" width={32} height={32}></Image>
+              </div>
+              <div>
+                <Image src={Youtube} alt="" width={32} height={32}></Image>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col pt-6">
+            <p className="text-xl font-medium">دانلود اپلیکیشن ما از:</p>
+            <div className="flex flex-wrap gap-2 lg:gap-4 pt-4">
+              <div className="flex items-center justify-center h-12 min-w-37 max-w-1/2 lg:w-22 bg-white rounded p-2">
+                <Image src={Bazzar} width={71} height={31} alt=""></Image>
+              </div>
+
+              <div className="flex items-center justify-center h-12 min-w-37 max-w-1/2 lg:w-22 bg-white rounded p-2">
+                <Image src={Sibapp} width={71} height={31} alt=""></Image>
+              </div>
+
+              <div className="flex items-center justify-center h-12 min-w-37 max-w-1/2 lg:w-22 bg-white rounded p-2">
+                <Image src={Mayket} width={71} height={31} alt=""></Image>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <hr className="w-full" />
+
+        <section className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6.5 w-full">
+          <div className="w-ful flex items-center">
+            <Image src={TechnoPay} alt="" width={120} height={38}></Image>
+            <Image src={TechnoGold} alt="" width={120} height={38}></Image>
+            <Image src={TechnoExpress} alt="" width={120} height={38}></Image>
+          </div>
+          <div className="grid-cols-1"></div>
+          <div className="grid grid-cols-5 gap-9.5 w-full pt-2">
+            <div className="flex flex-col justify-center items-center bg-white rounded-xl w-19 h-19 p-1">
+              <Image src={Enamad_1} alt="" width={50} height={50}></Image>
+            </div>
+
+            <div className="flex flex-col justify-center items-center bg-white rounded-xl w-19 h-19 p-">
+              <Image src={Enamad_2} alt="" width={40} height={40}></Image>
+            </div>
+
+            <div className="flex flex-col justify-center items-center bg-white rounded-xl w-19 h-19 p-1">
+              <Image src={Enamad_3} alt="" width={50} height={50}></Image>
+            </div>
+
+            <div className="flex flex-col justify-center items-center bg-white rounded-xl w-19 h-19 p-1">
+              <Image src={Enamad_4} alt="" width={50} height={50}></Image>
+            </div>
+
+            <div className="flex flex-col justify-center items-center bg-white rounded-xl w-19 h-19 p-1">
+              <Image src={Enamad_5} alt="" width={40} height={40}></Image>
+            </div>
+          </div>
+        </section>
+
+        <section className="flex flex-col justify-center items-center w-ful lg:flex-row mt-14 py-7.5 gap-2 text-sm">
+          <span>1391 - 1405</span>
+          <p>تمامی حقوق مادی و معنوی این سایت متعلق به تکنولایف می‌باشد.</p>
+        </section>
       </footer>
     </>
   )
