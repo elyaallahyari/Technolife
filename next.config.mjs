@@ -1,4 +1,14 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        hostname: 'www.technolife.com',
+        protocol: 'https'
+      }
+    ]
+  }
+}
 
-export default nextConfig;
+export default nextConfig
