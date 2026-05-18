@@ -13,8 +13,19 @@ import Slider05 from '@/public/media/SlideHeroBanner05.webp'
 import Slider06 from '@/public/media/SlideHeroBanner06.webp'
 import Slider07 from '@/public/media/SlideHeroBanner07.webp'
 import Slider08 from '@/public/media/SlideHeroBanner08.webp'
+import Slider09 from '@/public/media/SlideHeroBanner09.gif'
 
-const slides = [Slider01, Slider02, Slider03, Slider04, Slider05, Slider06, Slider07, Slider08]
+const slides = [
+  Slider09,
+  Slider01,
+  Slider02,
+  Slider03,
+  Slider04,
+  Slider05,
+  Slider06,
+  Slider07,
+  Slider08
+]
 
 export default function Carousel() {
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -59,7 +70,7 @@ export default function Carousel() {
 
   return (
     <div className="relative w-full">
-      <div className="overflow-hidden rounded-3xl" ref={emblaRef} dir="rtl">
+      <div className="overflow-hidden" ref={emblaRef} dir="rtl">
         <div className="flex">
           {slides.map((src, index) => (
             <div key={index} className="relative flex-[0_0_100%]">
