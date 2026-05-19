@@ -4,6 +4,7 @@ import TechnoTime from '@/app/_components/home/main/TechnoTime'
 import CenterTripletBanners from '@/app/_components/home/main/CenterTripletBanners'
 import SecondTripletBanners from '@/app/_components/home/main/SecondTripletBanners'
 import TopMobileBrands from '@/app/_components/home/main/TopMobileBrands'
+import SingleFullWidthBanner from '@/app/_components/home/main/SingleFullWidthBanner'
 
 export const metadata = {
   title: 'فروشگاه اینترنتی تکنولایف',
@@ -19,6 +20,7 @@ export default function Home() {
       <CenterTripletBanners />
       <SecondTripletBanners />
       <TopMobileBrands />
+      <SingleFullWidthBanner />
     </>
   )
 }
