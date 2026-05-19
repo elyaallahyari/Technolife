@@ -5,6 +5,7 @@ import CenterTripletBanners from '@/app/_components/home/main/CenterTripletBanne
 import SecondTripletBanners from '@/app/_components/home/main/SecondTripletBanners'
 import TopMobileBrands from '@/app/_components/home/main/TopMobileBrands'
 import SingleFullWidthBanner from '@/app/_components/home/main/SingleFullWidthBanner'
+import TopBrands from '@/app/_components/home/main/TopBrands'
 
 export const metadata = {
   title: 'فروشگاه اینترنتی تکنولایف',
@@ -21,6 +22,7 @@ export default function Home() {
       <SecondTripletBanners />
       <TopMobileBrands />
       <SingleFullWidthBanner />
+      <TopBrands />
     </>
   )
 }
