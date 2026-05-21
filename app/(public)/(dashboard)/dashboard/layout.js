@@ -7,7 +7,7 @@ export default function DashboardLayout({ children }) {
         <SidebarMenu />
       </aside>
 
-      <div className="border border-[#f0f0f0] bg-white p-4 mx-auto max-w-screen rounded w-full h-full">
+      <div className="border border-[#f0f0f0] bg-white p-4 mx-auto max-w-screen rounded w-full h-full min-h-100">
         {children}
       </div>
     </div>
