@@ -34,7 +34,7 @@ export default function UserInfo() {
         </div>
       </section>
 
-      <div className="absolute z-10 left-28 top-full md:top-[90%]">
+      <div className="absolute z-10 top-full -left-3 md:left-28 md:top-[90%]">
         <button
           className="text-white bg-[#223c78] p-1 md:p-2 md
         :px-4  text-sm rounded-lg cursor-pointer"
