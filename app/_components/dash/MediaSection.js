@@ -77,7 +77,7 @@ export default function MediaSection() {
 
   return (
     <section className="flex flex-col items-center justify-start gap-4">
-      <div className="font-extrabold">{isLoading ? 'برندهای فروشگاه...' : 'برندهای فروشگاه'}</div>
+      <div className="font-extrabold">{isLoading ? 'تصاویر فروشگاه...' : 'تصاویر فروشگاه'}</div>
       <div className="flex gap-4 flex-wrap">
         {data &&
           data.map((item) => (
