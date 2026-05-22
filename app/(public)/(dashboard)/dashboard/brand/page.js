@@ -1,7 +1,7 @@
 import BrandSection from '@/app/_components/dash/BrandSection'
 
 export const metadata = {
-  title: 'برندهای فروشگاه'
+  title: 'برندهای فروشگاه - تکنولایف'
 }
 
 export default async function Brands() {

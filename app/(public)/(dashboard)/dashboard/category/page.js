@@ -1,7 +1,7 @@
 import CategorySection from '@/app/_components/dash/CategorySection'
 
 export const metadata = {
-  title: 'دسته‌بندی‌های فروشگاه'
+  title: 'دسته‌بندی‌های فروشگاه - تکنولایف'
 }
 
 export default async function Categories() {

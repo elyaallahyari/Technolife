@@ -2,7 +2,7 @@ import UserInfo from '@/app/_components/dash/UserInfo'
 import { BiUser } from 'react-icons/bi'
 
 export const metadata = {
-  title: 'مشخصات فردی'
+  title: 'مشخصات فردی - تکنولایف'
 }
 
 export default async function Profile() {

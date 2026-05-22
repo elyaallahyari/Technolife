@@ -1,7 +1,7 @@
 import MediaSection from '@/app/_components/dash/MediaSection'
 
 export const metadata = {
-  title: 'تصاویر فروشگاه'
+  title: 'تصاویر فروشگاه - تکنولایف'
 }
 
 export default async function Medias() {
