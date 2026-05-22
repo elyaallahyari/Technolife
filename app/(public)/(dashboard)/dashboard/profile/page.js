@@ -1,6 +1,10 @@
 import UserInfo from '@/app/_components/dash/UserInfo'
 import { BiUser } from 'react-icons/bi'
 
+export const metadata = {
+  title: 'مشخصات فردی'
+}
+
 export default async function Profile() {
   return (
     <section className="p-9 px-18 flex flex-col items-start justify-center text-[#223c76] gap-20">
