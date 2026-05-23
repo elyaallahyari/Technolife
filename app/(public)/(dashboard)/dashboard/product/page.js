@@ -1,3 +1,7 @@
+export const metadata = {
+  title: 'محصولات فروشگاه - تکنولایف'
+}
+
 export default async function Products() {
   return (
     <>
