@@ -1,4 +1,4 @@
-import UserInfo from '@/app/_components/dash/UserInfo'
+import UserInfo from '@/app/_components/sections/dash/user-info/UserInfo'
 import { BiUser } from 'react-icons/bi'
 
 export const metadata = {

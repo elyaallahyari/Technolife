@@ -39,7 +39,7 @@ const menuItem = [
   }
 ]
 
-export default function SidebarMenu() {
+export default function SidebarDashboard() {
   return (
     <>
       <div className="hidden lg:flex flex-col justify-center items-center h-full w-full lg:w-50 text-[#223c76] p-5">

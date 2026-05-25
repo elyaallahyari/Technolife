@@ -1,4 +1,4 @@
-import BrandSection from '@/app/_components/dash/BrandSection'
+import BrandSection from '@/app/_components/sections/dash/brand/BrandSection'
 
 export const metadata = {
   title: 'برندهای فروشگاه - تکنولایف'

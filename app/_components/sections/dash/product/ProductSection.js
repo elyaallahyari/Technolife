@@ -137,7 +137,7 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import useSWR from 'swr'
-import MediaLibraryModal from './modal/MediaLibraryModal'
+import MediaLibraryModal from '../modal/MediaLibraryModal'
 import { GrFormAdd } from 'react-icons/gr'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())

@@ -1,4 +1,4 @@
-import MediaSection from '@/app/_components/dash/MediaSection'
+import MediaSection from '@/app/_components/sections/dash/media/MediaSection'
 
 export const metadata = {
   title: 'تصاویر فروشگاه - تکنولایف'

@@ -1,7 +1,7 @@
-import AdvertisingBanner from '@/app/_components/home/header/AdvertisingBanner'
-import MainHeader from '@/app/_components/home/header/MainHeader'
-import HorizontalMenu from '@/app/_components/home/header/HorizontalMenu'
-import Footerr from '@/app/_components/home/footer/Footer'
+import AdvertisingBanner from '@/app/_components/sections/home/header/AdvertisingBanner'
+import MainHeader from '@/app/_components/sections/home/header/MainHeader'
+import HorizontalMenu from '@/app/_components/sections/home/header/HorizontalMenu'
+import Footerr from '@/app/_components/sections/home/footer/Footer'
 
 export default function HomeLayout({ children }) {
   return (

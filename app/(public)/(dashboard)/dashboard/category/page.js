@@ -1,4 +1,4 @@
-import CategorySection from '@/app/_components/dash/CategorySection'
+import CategorySection from '@/app/_components/sections/dash/category/CategorySection'
 
 export const metadata = {
   title: 'دسته‌بندی‌های فروشگاه - تکنولایف'

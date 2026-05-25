@@ -1,4 +1,4 @@
-import ProducSection from '@/app/_components/dash/ProductSection'
+import ProducSection from '@/app/_components/sections/dash/product/ProductSection'
 
 export const metadata = {
   title: 'محصولات فروشگاه - تکنولایف'
