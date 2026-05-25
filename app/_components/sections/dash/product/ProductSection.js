@@ -1,152 +1,58 @@
-// 'use client'
-// import Image from 'next/image'
-// import { useState } from 'react'
-// import useSWR from 'swr'
-// import MediaLibraryModal from './modal/MediaLibraryModal'
-// import { GrFormAdd } from 'react-icons/gr'
-
-// const fetcher = (url) => fetch(url).then((res) => res.json())
-// export default function ProductSection() {
-//   const { data: brand } = useSWR('http://localhost:4000/api/brand', fetcher)
-//   const { data: category } = useSWR('http://localhost:4000/api/category', fetcher)
-
-//   const [showGallery, setShowGallery] = useState(false)
-//   const [media, setMedia] = useState([])
-
-//   const toggleMediaSelection = (item) => {
-//     setMedia((prev) => {
-//       const exists = prev.find((i) => i._id === item._id)
-//       if (exists) {
-//         return prev.filter((i) => i._id !== item._id)
-//       } else {
-//         return [...prev, item]
-//       }
-//     })
-//   }
-
-//   return (
-//     <div className="flex flex-col md:flex-row flex-wrap gap-8">
-//       <section className="border border-[#f0f0f0] rounded-xl flex flex-col justify-between items-center text-sm">
-//         <div className="p-3 bg-[#fcfeff] font-bold w-full rounded-t-xl"> نام محصول</div>
-//         <hr className="w-full" />
-//         <div className="flex justify-center items-center p-3 gap-3">
-//           <label htmlFor="name">نام</label>
-//           <input
-//             type="text"
-//             name="name"
-//             placeholder="نام محصول را وارد کنید"
-//             className="border border-[#f0f0f0] rounded-xl p-1"
-//           />
-//         </div>
-//       </section>
-
-//       <section className="border border-[#f0f0f0] rounded-xl flex flex-col justify-between items-center text-sm">
-//         <div className="p-3 bg-[#fcfeff] font-bold w-full rounded-t-xl"> قیمت محصول</div>
-//         <hr className="w-full" />
-//         <div className="flex justify-center items-center p-3 gap-3 relative">
-//           <label htmlFor="price">قیمت</label>
-//           <input
-//             type="number"
-//             name="price"
-//             placeholder="قیمت محصول را وارد کنید"
-//             className="border border-[#f0f0f0] rounded-xl p-1 pr-3 pl-6"
-//           />
-//           <span className="flex absolute left-3.25 bottom-3.25 bg-[#fcfeff] p-1 rounded-l-xl">
-//             تومان
-//           </span>
-//         </div>
-//       </section>
-
-//       <section className="border border-[#f0f0f0] rounded-xl flex flex-col justify-between items-center text-sm">
-//         <div className="p-3 bg-[#fcfeff] font-bold w-full rounded-t-xl">برند محصول</div>
-//         <hr className="w-full" />
-//         <div className="flex justify-center items-center p-3 gap-3 relative w-full">
-//           <label htmlFor="brand">برند را انتخاب کنید: </label>
-//           <select id="brand" className="border rounded bg-[#fcfeff] border-[#f0f0f0]">
-//             برند
-//             {brand &&
-//               brand.map((item) => (
-//                 <option key={item._id} value={item.name}>
-//                   {item.name}
-//                 </option>
-//               ))}
-//           </select>
-//         </div>
-//       </section>
-
-//       <section className="border border-[#f0f0f0] rounded-xl flex flex-col justify-between items-center text-sm">
-//         <div className="p-3 bg-[#fcfeff] font-bold w-full rounded-t-xl">دسته‌بندی محصول</div>
-//         <hr className="w-full" />
-//         <div className="flex justify-center items-center p-3 gap-3 relative w-full">
-//           <label htmlFor="brand">دسته‌بندی را انتخاب کنید: </label>
-//           <select id="brand" className="border rounded bg-[#fcfeff] border-[#f0f0f0]">
-//             دسته‌بندی
-//             {category &&
-//               category.map((item) => (
-//                 <option key={item._id} value={item.name}>
-//                   {item.name}
-//                 </option>
-//               ))}
-//           </select>
-//         </div>
-//       </section>
-
-//       <section className="border border-[#f0f0f0] rounded-xl flex flex-col justify-between items-center text-sm">
-//         <div className="p-3 bg-[#fcfeff] font-bold w-full rounded-t-xl">تصاویر محصول</div>
-//         <hr className="w-full" />
-//         <div className="flex justify-center items-center p-3 gap-3 relative w-full">
-//           <label htmlFor="brand"> گالری تصاویر </label>
-//         </div>
-
-//         <MediaLibraryModal
-//           isVisible={showGallery}
-//           selectedItems={media}
-//           onToggleSelection={toggleMediaSelection}
-//           onClose={() => setShowGallery(false)}
-//         />
-//         <div className="flex flex-row justify-center items-center input cursor-pointer gap-3">
-//           <div className="flex flex-row gap-1">
-//             {media &&
-//               media.map((item) => (
-//                 <div key={item._id} className="border border-gray-100 rounded">
-//                   <Image src={item?.url} width={90} height={90} alt={item?.url} />
-//                 </div>
-//               ))}
-//           </div>
-//           <div
-//             className="flex flex-row justify-center items-center w-full input"
-//             onClick={() => setShowGallery(!showGallery)}
-//           >
-//             <GrFormAdd />
-//           </div>
-//         </div>
-//       </section>
-
-//       <div>
-//         <button type="submit" className="bg-green-400 p-2 rounded-xl cursor-pointer text-sm">
-//           افزودن محصول
-//         </button>
-//         <button className="bg-gray-300 rounded-xl cursor-pointer p-2 text-sm">انصراف</button>
-//       </div>
-//     </div>
-//   )
-// }
-
 'use client'
 
 import Image from 'next/image'
 import { useState } from 'react'
-import useSWR from 'swr'
-import MediaLibraryModal from '../modal/MediaLibraryModal'
+import { FiEdit3, FiX } from 'react-icons/fi'
+import { RiDeleteBin5Line } from 'react-icons/ri'
 import { GrFormAdd } from 'react-icons/gr'
+
+import useSWR, { mutate } from 'swr'
+import useSWRMutation from 'swr/mutation'
+
+import MediaLibraryModal from '../modal/MediaLibraryModal'
+
+const PRODUCT_API = 'http://localhost:4000/api/product'
+const BRAND_API = 'http://localhost:4000/api/brand'
+const CATEGORY_API = 'http://localhost:4000/api/category'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
+async function DeleteProduct(url, { arg }) {
+  return fetch(`${url}/${arg}`, {
+    method: 'DELETE',
+    credentials: 'include'
+  }).then((res) => res.json())
+}
+
+async function EditProduct(url, { arg }) {
+  const { _id, data } = arg
+
+  return fetch(`${url}/${_id}`, {
+    method: 'PUT',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }).then((res) => res.json())
+}
+
 export default function ProductSection() {
-  const { data: brand } = useSWR('http://localhost:4000/api/brand', fetcher)
-  const { data: category } = useSWR('http://localhost:4000/api/category', fetcher)
+  const { data: products, isLoading } = useSWR(PRODUCT_API, fetcher)
+
+  const { data: brands } = useSWR(BRAND_API, fetcher)
+
+  const { data: categories } = useSWR(CATEGORY_API, fetcher)
+
+  const { trigger: deleteTrigger } = useSWRMutation(PRODUCT_API, DeleteProduct)
+
+  const { trigger: editTrigger, isMutating } = useSWRMutation(PRODUCT_API, EditProduct)
+
+  const [isOpen, setIsOpen] = useState(false)
 
   const [showGallery, setShowGallery] = useState(false)
+
+  const [selectedProduct, setSelectedProduct] = useState(null)
 
   const [media, setMedia] = useState([])
 
@@ -158,15 +64,41 @@ export default function ProductSection() {
     category: ''
   })
 
-  const toggleMediaSelection = (item) => {
-    setMedia((prev) => {
-      const exists = prev.find((i) => i._id === item._id)
+  const deleteHandler = async (id) => {
+    await deleteTrigger(id)
 
-      if (exists) {
-        return prev.filter((i) => i._id !== item._id)
-      } else {
-        return [...prev, item]
-      }
+    mutate(PRODUCT_API)
+  }
+
+  const openEditModal = (product) => {
+    setSelectedProduct(product)
+
+    setFormData({
+      name: product.name || '',
+      price: product.price || '',
+      sale: product.sale || 0,
+      brand: product.brand?._id || '',
+      category: product.category?._id || ''
+    })
+
+    setMedia(product.media || [])
+
+    setIsOpen(true)
+  }
+
+  const closeModal = () => {
+    setIsOpen(false)
+
+    setSelectedProduct(null)
+
+    setMedia([])
+
+    setFormData({
+      name: '',
+      price: '',
+      sale: 0,
+      brand: '',
+      category: ''
     })
   }
 
@@ -179,10 +111,22 @@ export default function ProductSection() {
     }))
   }
 
-  const submitHandler = async (e) => {
+  const toggleMediaSelection = (item) => {
+    setMedia((prev) => {
+      const exists = prev.find((i) => i._id === item._id)
+
+      if (exists) {
+        return prev.filter((i) => i._id !== item._id)
+      }
+
+      return [...prev, item]
+    })
+  }
+
+  const submitEditHandler = async (e) => {
     e.preventDefault()
 
-    const newProduct = {
+    const updatedProduct = {
       name: formData.name,
       price: Number(formData.price),
       sale: Number(formData.sale),
@@ -191,222 +135,270 @@ export default function ProductSection() {
       brand: formData.brand
     }
 
-    try {
-      const res = await fetch('http://localhost:4000/api/product', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        credentials: 'include',
-        body: JSON.stringify(newProduct)
-      })
+    await editTrigger({
+      _id: selectedProduct._id,
+      data: updatedProduct
+    })
 
-      const data = await res.json()
+    mutate(PRODUCT_API)
 
-      if (!res.ok) {
-        throw new Error(data.message || 'خطا در افزودن محصول')
-      }
+    closeModal()
+  }
 
-      console.log('SUCCESS : ', data)
-
-      alert('محصول با موفقیت اضافه شد')
-
-      setFormData({
-        name: '',
-        price: '',
-        sale: 0,
-        brand: '',
-        category: ''
-      })
-
-      setMedia([])
-    } catch (err) {
-      console.log(err)
-      alert(err.message)
-    }
+  if (isLoading) {
+    return <p>Loading...</p>
   }
 
   return (
-    <form onSubmit={submitHandler} className="flex flex-col md:flex-row flex-wrap gap-8">
-      <section className="border border-[#f0f0f0] rounded-xl flex flex-col justify-between items-center text-sm">
-        <div className="p-3 bg-[#fcfeff] font-bold w-full rounded-t-xl">نام محصول</div>
+    <section className="w-full h-full">
+      <table className="w-full border border-[#f0f0f0] rounded-xl overflow-hidden text-center">
+        <thead className="bg-[#f8f8f8]">
+          <tr className="*:p-3 text-sm">
+            <th>نام</th>
 
-        <hr className="w-full" />
+            <th>قیمت</th>
 
-        <div className="flex justify-center items-center p-3 gap-3">
-          <label htmlFor="name">نام</label>
+            <th>تخفیف</th>
 
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={changeHandler}
-            placeholder="نام محصول را وارد کنید"
-            className="border border-[#f0f0f0] rounded-xl p-1"
-          />
-        </div>
-      </section>
+            <th>دسته‌بندی</th>
 
-      <section className="border border-[#f0f0f0] rounded-xl flex flex-col justify-between items-center text-sm">
-        <div className="p-3 bg-[#fcfeff] font-bold w-full rounded-t-xl">قیمت محصول</div>
+            <th>برند</th>
 
-        <hr className="w-full" />
+            <th>ویرایش</th>
 
-        <div className="flex justify-center items-center p-3 gap-3 relative">
-          <label htmlFor="price">قیمت</label>
+            <th>حذف</th>
+          </tr>
+        </thead>
 
-          <input
-            type="number"
-            name="price"
-            value={formData.price}
-            onChange={changeHandler}
-            placeholder="قیمت محصول را وارد کنید"
-            className="border border-[#f0f0f0] rounded-xl p-1 pr-3 pl-6"
-          />
+        <tbody>
+          {products?.map((product) => (
+            <tr
+              key={product._id}
+              className="border-b border-[#f0f0f0] hover:bg-[#fafafa] transition"
+            >
+              <td className="p-3">{product.name}</td>
 
-          <span className="flex absolute left-3.25 bottom-3.25 bg-[#fcfeff] p-1 rounded-l-xl">
-            تومان
-          </span>
-        </div>
-      </section>
+              <td className="p-3">{product.price.toLocaleString()}</td>
 
-      <section className="border border-[#f0f0f0] rounded-xl flex flex-col justify-between items-center text-sm">
-        <div className="p-3 bg-[#fcfeff] font-bold w-full rounded-t-xl">تخفیف محصول</div>
+              <td className="p-3">{product.sale}%</td>
 
-        <hr className="w-full" />
+              <td className="p-3">{product.category?.name}</td>
 
-        <div className="flex justify-center items-center p-3 gap-3 relative">
-          <label htmlFor="sale">تخفیف</label>
+              <td className="p-3">{product.brand?.name}</td>
 
-          <input
-            type="number"
-            name="sale"
-            value={formData.sale}
-            onChange={changeHandler}
-            placeholder="درصد تخفیف"
-            min="0"
-            max="100"
-            className="border border-[#f0f0f0] rounded-xl p-1 pr-3 pl-6"
-          />
+              <td className="p-3">
+                <button onClick={() => openEditModal(product)} className="cursor-pointer">
+                  <FiEdit3 size={18} className="text-amber-400 hover:text-amber-500" />
+                </button>
+              </td>
 
-          <span className="flex absolute left-3.25 bottom-3.25 bg-[#fcfeff] p-1 rounded-l-xl">
-            %
-          </span>
-        </div>
+              <td className="p-3">
+                <button onClick={() => deleteHandler(product._id)} className="cursor-pointer">
+                  <RiDeleteBin5Line size={18} className="text-red-400 hover:text-red-500" />
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
 
-        <div className="w-full border-t border-[#f0f0f0] p-3 flex justify-between items-center">
-          <span className="font-bold">قیمت نهایی:</span>
+      {/* MODAL */}
 
-          <span className="text-green-600 font-bold">
-            {formData.price
-              ? (
-                  Number(formData.price) -
-                  (Number(formData.price) * Number(formData.sale)) / 100
-                ).toLocaleString()
-              : 0}{' '}
-            تومان
-          </span>
-        </div>
-      </section>
+      {isOpen && (
+        <section className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
+          <div className="bg-white w-full max-w-5xl rounded-3xl p-6 relative overflow-y-auto max-h-[95vh]">
+            <button onClick={closeModal} className="absolute top-5 left-5">
+              <FiX size={22} />
+            </button>
 
-      <section className="border border-[#f0f0f0] rounded-xl flex flex-col justify-between items-center text-sm">
-        <div className="p-3 bg-[#fcfeff] font-bold w-full rounded-t-xl">برند محصول</div>
+            <h2 className="text-2xl font-bold mb-8">ویرایش محصول</h2>
 
-        <hr className="w-full" />
+            <form onSubmit={submitEditHandler} className="flex flex-wrap gap-6">
+              {/* NAME */}
 
-        <div className="flex justify-center items-center p-3 gap-3 relative w-full">
-          <label htmlFor="brand">برند را انتخاب کنید:</label>
+              <section className="border border-[#f0f0f0] rounded-xl flex flex-col text-sm flex-1 min-w-75">
+                <div className="p-3 bg-[#fcfeff] font-bold rounded-t-xl">نام محصول</div>
 
-          <select
-            id="brand"
-            name="brand"
-            value={formData.brand}
-            onChange={changeHandler}
-            className="border rounded bg-[#fcfeff] border-[#f0f0f0]"
-          >
-            <option value="">انتخاب برند</option>
+                <div className="p-4 flex flex-col gap-2">
+                  <label htmlFor="name">نام محصول</label>
 
-            {brand &&
-              brand.map((item) => (
-                <option key={item._id} value={item._id}>
-                  {item.name}
-                </option>
-              ))}
-          </select>
-        </div>
-      </section>
-
-      <section className="border border-[#f0f0f0] rounded-xl flex flex-col justify-between items-center text-sm">
-        <div className="p-3 bg-[#fcfeff] font-bold w-full rounded-t-xl">دسته‌بندی محصول</div>
-
-        <hr className="w-full" />
-
-        <div className="flex justify-center items-center p-3 gap-3 relative w-full">
-          <label htmlFor="category">دسته‌بندی را انتخاب کنید:</label>
-
-          <select
-            id="category"
-            name="category"
-            value={formData.category}
-            onChange={changeHandler}
-            className="border rounded bg-[#fcfeff] border-[#f0f0f0]"
-          >
-            <option value="">انتخاب دسته‌بندی</option>
-
-            {category &&
-              category.map((item) => (
-                <option key={item._id} value={item._id}>
-                  {item.name}
-                </option>
-              ))}
-          </select>
-        </div>
-      </section>
-
-      <section className="border border-[#f0f0f0] rounded-xl flex flex-col justify-between items-center text-sm">
-        <div className="p-3 bg-[#fcfeff] font-bold w-full rounded-t-xl">تصاویر محصول</div>
-
-        <hr className="w-full" />
-
-        <div className="flex justify-center items-center p-3 gap-3 relative w-full">
-          <label>گالری تصاویر</label>
-        </div>
-
-        <MediaLibraryModal
-          isVisible={showGallery}
-          selectedItems={media}
-          onToggleSelection={toggleMediaSelection}
-          onClose={() => setShowGallery(false)}
-        />
-
-        <div className="flex flex-row justify-center items-center input cursor-pointer gap-3">
-          <div className="flex flex-row gap-1">
-            {media &&
-              media.map((item) => (
-                <div key={item._id} className="border border-gray-100 rounded">
-                  <Image src={item?.url} width={90} height={90} alt={item?.url} />
+                  <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={changeHandler}
+                    placeholder="نام محصول"
+                    className="border border-[#f0f0f0] rounded-xl p-2 outline-none"
+                  />
                 </div>
-              ))}
+              </section>
+
+              <section className="border border-[#f0f0f0] rounded-xl flex flex-col text-sm flex-1 min-w-75">
+                <div className="p-3 bg-[#fcfeff] font-bold rounded-t-xl">قیمت محصول</div>
+
+                <div className="p-4 flex flex-col gap-2 relative">
+                  <label htmlFor="price">قیمت</label>
+
+                  <input
+                    id="price"
+                    type="number"
+                    name="price"
+                    value={formData.price}
+                    onChange={changeHandler}
+                    placeholder="قیمت محصول"
+                    className="border border-[#f0f0f0] rounded-xl p-2 pr-3 pl-16 outline-none"
+                  />
+
+                  <span className="absolute left-6 bottom-6 text-xs">تومان</span>
+                </div>
+              </section>
+
+              <section className="border border-[#f0f0f0] rounded-xl flex flex-col text-sm flex-1 min-w-75">
+                <div className="p-3 bg-[#fcfeff] font-bold rounded-t-xl">تخفیف محصول</div>
+
+                <div className="p-4 flex flex-col gap-2 relative">
+                  <label htmlFor="sale">درصد تخفیف</label>
+
+                  <input
+                    id="sale"
+                    type="number"
+                    name="sale"
+                    min="0"
+                    max="100"
+                    value={formData.sale}
+                    onChange={changeHandler}
+                    placeholder="درصد تخفیف"
+                    className="border border-[#f0f0f0] rounded-xl p-2 pr-3 pl-10 outline-none"
+                  />
+
+                  <span className="absolute left-6 bottom-6 text-xs">%</span>
+                </div>
+
+                <div className="border-t border-[#f0f0f0] p-4 flex justify-between items-center">
+                  <span className="font-bold">قیمت نهایی:</span>
+
+                  <span className="font-bold text-green-600">
+                    {formData.price
+                      ? (
+                          Number(formData.price) -
+                          (Number(formData.price) * Number(formData.sale)) / 100
+                        ).toLocaleString()
+                      : 0}{' '}
+                    تومان
+                  </span>
+                </div>
+              </section>
+
+              <section className="border border-[#f0f0f0] rounded-xl flex flex-col text-sm flex-1 min-w-75">
+                <div className="p-3 bg-[#fcfeff] font-bold rounded-t-xl">برند محصول</div>
+
+                <div className="p-4 flex flex-col gap-2">
+                  <label htmlFor="brand">انتخاب برند</label>
+
+                  <select
+                    id="brand"
+                    name="brand"
+                    value={formData.brand}
+                    onChange={changeHandler}
+                    className="border border-[#f0f0f0] rounded-xl p-2 bg-white"
+                  >
+                    <option value="">انتخاب برند</option>
+
+                    {brands?.map((item) => (
+                      <option key={item._id} value={item._id}>
+                        {item.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </section>
+
+              <section className="border border-[#f0f0f0] rounded-xl flex flex-col text-sm flex-1 min-w-75">
+                <div className="p-3 bg-[#fcfeff] font-bold rounded-t-xl">دسته‌بندی محصول</div>
+
+                <div className="p-4 flex flex-col gap-2">
+                  <label htmlFor="category">انتخاب دسته‌بندی</label>
+
+                  <select
+                    id="category"
+                    name="category"
+                    value={formData.category}
+                    onChange={changeHandler}
+                    className="border border-[#f0f0f0] rounded-xl p-2 bg-white"
+                  >
+                    <option value="">انتخاب دسته‌بندی</option>
+
+                    {categories?.map((item) => (
+                      <option key={item._id} value={item._id}>
+                        {item.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </section>
+
+              <section className="border border-[#f0f0f0] rounded-xl flex flex-col text-sm w-full">
+                <div className="p-3 bg-[#fcfeff] font-bold rounded-t-xl">تصاویر محصول</div>
+
+                <div className="p-4 flex flex-col gap-4">
+                  <label>گالری تصاویر</label>
+
+                  <MediaLibraryModal
+                    isVisible={showGallery}
+                    selectedItems={media}
+                    onToggleSelection={toggleMediaSelection}
+                    onClose={() => setShowGallery(false)}
+                  />
+
+                  <div className="flex flex-wrap gap-3">
+                    {media?.map((item) => (
+                      <div
+                        key={item._id}
+                        className="border border-[#f0f0f0] rounded-xl overflow-hidden"
+                      >
+                        <Image
+                          src={item.url}
+                          width={120}
+                          height={120}
+                          alt={item.url}
+                          className="object-cover w-30 h-30"
+                        />
+                      </div>
+                    ))}
+
+                    <button
+                      type="button"
+                      onClick={() => setShowGallery(true)}
+                      className="w-30 h-30 border border-dashed border-gray-300 rounded-xl flex items-center justify-center hover:bg-gray-50 transition"
+                    >
+                      <GrFormAdd size={28} />
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <div className="w-full flex justify-end gap-3">
+                <button
+                  type="button"
+                  onClick={closeModal}
+                  className="px-5 py-2 rounded-xl bg-gray-200 hover:bg-gray-300 transition"
+                >
+                  انصراف
+                </button>
+
+                <button
+                  type="submit"
+                  disabled={isMutating}
+                  className="px-5 py-2 rounded-xl bg-green-500 text-white hover:bg-green-600 transition"
+                >
+                  {isMutating ? 'در حال ذخیره...' : 'ذخیره تغییرات'}
+                </button>
+              </div>
+            </form>
           </div>
-
-          <div
-            className="flex flex-row justify-center items-center w-full input"
-            onClick={() => setShowGallery(!showGallery)}
-          >
-            <GrFormAdd />
-          </div>
-        </div>
-      </section>
-
-      <div className="flex gap-3">
-        <button type="submit" className="bg-green-400 p-2 rounded-xl cursor-pointer text-sm">
-          افزودن محصول
-        </button>
-
-        <button type="button" className="bg-gray-300 rounded-xl cursor-pointer p-2 text-sm">
-          انصراف
-        </button>
-      </div>
-    </form>
+        </section>
+      )}
+    </section>
   )
 }
