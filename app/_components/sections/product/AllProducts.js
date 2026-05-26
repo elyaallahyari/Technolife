@@ -13,9 +13,9 @@ export default function AllProducts() {
         data.map((item) => (
           <div
             key={item._id}
-            className="flex flex-col items-center justify-center p-2 rounded-xl border border-[#f0f0f0]"
+            className="flex flex-col items-center justify-center p-2 rounded-lg border border-[#f0f0f0]"
           >
-            <Image src={item.media[0]?.url} alt="image" width={80} height={150}></Image>
+            <Image src={item.media[0]?.url} alt="image" width={206} height={206}></Image>
             <div> {item.name}</div>
             <div>{item.price}تومان</div>
             <div>{item.sale}%</div>
