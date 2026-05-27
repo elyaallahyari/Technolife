@@ -6,9 +6,12 @@ const nextConfig = {
       {
         hostname: 'www.technolife.com',
         protocol: 'https'
+      },
+      {
+        hostname: 'encrypted-tbn0.gstatic.com',
+        protocol: 'https'
       }
     ]
   }
 }
-
 export default nextConfig
