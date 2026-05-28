@@ -145,12 +145,12 @@ export default function ProductSection() {
     closeModal()
   }
 
-  if (isLoading) {
-    return <p>Loading...</p>
-  }
-
   return (
-    <section className="w-full h-full">
+    <section className="w-full h-full flex flex-col items-center justify-start gap-6 ">
+      <div className="text-xl font-bold">
+        {isLoading ? 'دریافت محصولات فروشگاه...' : 'محصولات فروشگاه'}
+      </div>
+
       <table className="w-full border border-[#f0f0f0] rounded-xl overflow-hidden text-center">
         <thead className="bg-[#f8f8f8]">
           <tr className="*:p-3 text-sm">
