@@ -55,9 +55,9 @@ export default function SidebarDashboard() {
                 <li key={item.id} className="flex w-full">
                   <Link
                     href={item.href}
-                    className={`flex flex-row items-center gap-2 hover:bg-gray-100 p-3 rounded-xl cursor-pointer transition-all z-10
+                    className={`flex flex-row items-center gap-2 p-3 rounded-xl cursor-pointer transition-all z-10
                   
-                  ${isActive ? 'w-65 px-3 border-y border-r border-[#f0f0f0] bg-white rounded-r-full' : ''}
+                  ${isActive ? 'w-65 px-3 border-y border-r border-[#f0f0f0] bg-white rounded-r-full' : 'hover:bg-gray-100'}
                 `}
                   >
                     <span>{item.icon}</span>
