@@ -13,10 +13,11 @@ import Slider05 from '@/public/media/SlideHeroBanner05.webp'
 import Slider06 from '@/public/media/SlideHeroBanner06.webp'
 import Slider07 from '@/public/media/SlideHeroBanner07.webp'
 import Slider08 from '@/public/media/SlideHeroBanner08.webp'
-import Slider09 from '@/public/media/SlideHeroBanner09.gif'
+import Slider09 from '@/public/media/SlideHeroBanner09.webp'
+import Slider10 from '@/public/media/SlideHeroBanner10.webp'
+import Slider11 from '@/public/media/SlideHeroBanner11.gif'
 
 const slides = [
-  Slider09,
   Slider01,
   Slider02,
   Slider03,
@@ -24,7 +25,10 @@ const slides = [
   Slider05,
   Slider06,
   Slider07,
-  Slider08
+  Slider08,
+  Slider09,
+  Slider10,
+  Slider11
 ]
 
 export default function Carousel() {
