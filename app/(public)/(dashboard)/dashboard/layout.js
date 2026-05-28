@@ -2,8 +2,8 @@ import SidebarDashboard from '@/app/_components/ui/SidebarDashboard'
 
 export default function DashboardLayout({ children }) {
   return (
-    <div className="flex flex-row items-center justify-around p-14 bg-[#fcfeff] w-full h-full gap-7">
-      <aside>
+    <div className="flex flex-row items-start justify-around p-14 bg-[#fcfeff] w-full h-full gap-7">
+      <aside className="h-full">
         <SidebarDashboard />
       </aside>
 
