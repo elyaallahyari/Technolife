@@ -95,7 +95,7 @@ export default function CategorySection() {
   }
 
   return (
-    <section className="flex flex-col items-center justify-start gap-4">
+    <section className="flex flex-col items-center justify-start gap-4 w-full">
       <div className="font-extrabold">
         {isLoading ? 'دسته‌بندی‌های فروشگاه...' : 'دسته‌بندی‌های فروشگاه'}
       </div>

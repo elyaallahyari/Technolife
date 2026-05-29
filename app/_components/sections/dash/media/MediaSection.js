@@ -76,7 +76,7 @@ export default function MediaSection() {
   }
 
   return (
-    <section className="flex flex-col items-center justify-start gap-4">
+    <section className="flex flex-col items-center justify-start gap-4 w-full">
       <div className="font-extrabold">{isLoading ? 'تصاویر فروشگاه...' : 'تصاویر فروشگاه'}</div>
       <div className="flex gap-4 flex-wrap">
         {data &&
