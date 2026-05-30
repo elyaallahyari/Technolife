@@ -16,6 +16,7 @@ import Slider08 from '@/public/media/SlideHeroBanner08.webp'
 import Slider09 from '@/public/media/SlideHeroBanner09.webp'
 import Slider10 from '@/public/media/SlideHeroBanner10.webp'
 import Slider11 from '@/public/media/SlideHeroBanner11.gif'
+import Slider12 from '@/public/media/SlideHeroBanner12.webp'
 
 const slides = [
   Slider01,
@@ -28,7 +29,8 @@ const slides = [
   Slider08,
   Slider09,
   Slider10,
-  Slider11
+  Slider11,
+  Slider12
 ]
 
 export default function Carousel() {
