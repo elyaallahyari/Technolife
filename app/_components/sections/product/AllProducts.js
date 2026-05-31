@@ -9,7 +9,7 @@ export default function AllProducts() {
   const { data } = useSWR('http://localhost:4000/api/product', fetcher)
   return (
     <section className="flex flex-row justify-center items-center flex-wrap gap-6">
-      {data &&
+      {data ? (
         data.map((item) => (
           <div
             key={item._id}
@@ -62,7 +62,10 @@ export default function AllProducts() {
               </div>
             </div>
           </div>
-        ))}
+        ))
+      ) : (
+        <div className="text-sm pt-15 pb-30 text-red-500">مشکل در برقراری اطلاعات با سرور...</div>
+      )}
     </section>
   )
 }
