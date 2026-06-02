@@ -222,6 +222,7 @@ export default function TechnoTime() {
                 justify-center
                 hover:scale-105
                 transition
+                cursor-pointer
               "
             >
               <FiChevronRight size={20} />
@@ -245,6 +246,7 @@ export default function TechnoTime() {
                 justify-center
                 hover:scale-105
                 transition
+                cursor-pointer
               "
             >
               <FiChevronLeft size={20} />
