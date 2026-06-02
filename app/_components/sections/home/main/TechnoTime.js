@@ -11,6 +11,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 
 import { useRef, useCallback } from 'react'
+import SaleTimer from '@/app/_components/ui/SaleTimer'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
@@ -139,7 +140,7 @@ export default function TechnoTime() {
                         <div className="text-xs text-gray-500">زمان باقی مانده</div>
 
                         <div className="font-bold text-[#750e13] text-sm underline tracking-wider">
-                          13:28:30
+                          <SaleTimer />
                         </div>
                       </div>
                     </div>
