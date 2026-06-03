@@ -12,6 +12,7 @@ import Autoplay from 'embla-carousel-autoplay'
 
 import { useRef, useCallback } from 'react'
 import SaleTimer from '@/app/_components/ui/SaleTimer'
+import Link from 'next/link'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
@@ -58,10 +59,13 @@ export default function TechnoTime() {
             <span className="font-bold text-xl">تکنو تایم</span>
           </div>
 
-          <button className="flex items-center gap-1 text-sm hover:opacity-80 transition">
+          <Link
+            href={'/sale'}
+            className="flex items-center gap-1 text-sm hover:opacity-80 transition"
+          >
             <span>نمایش همه</span>
             <FiChevronLeft />
-          </button>
+          </Link>
         </div>
 
         {isLoading && <p className="text-center text-white py-10">در حال بارگذاری...</p>}

@@ -1,12 +1,25 @@
-'use client'
 import SaleTimer from '@/app/_components/ui/SaleTimer'
 import Image from 'next/image'
-import useSWR from 'swr'
 
-const fetcher = (url) => fetch(url).then((res) => res.json())
+export const metadata = {
+  title: 'محصولات تخفیف‌دار',
+  description: 'لیست محصولات دارای تخفیف'
+}
 
-export default function Sale() {
-  const { data, isLoading, error } = useSWR('http://localhost:4000/api/product/sale', fetcher)
+async function getSaleProducts() {
+  const res = await fetch('http://localhost:4000/api/product/sale', {
+    cache: 'no-store'
+  })
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch')
+  }
+
+  return res.json()
+}
+
+export default async function Sale() {
+  const data = await getSaleProducts()
 
   return (
     <>
