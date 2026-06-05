@@ -48,7 +48,7 @@ export default function BrandCarousel() {
             <div className="flex items-center gap-4 h-full w-full">
               {data.map((item) => (
                 <div
-                  key={item.id}
+                  key={item._id}
                   className="flex-[0_0_auto] flex items-center border-l border-[#8a8f9a] p-9"
                 >
                   <Image

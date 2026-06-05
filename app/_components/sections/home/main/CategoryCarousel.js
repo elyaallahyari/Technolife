@@ -48,7 +48,7 @@ export default function CategoryCarousel() {
             <div className="flex items-center gap-16 p-4 my-9">
               {data.map((item) => (
                 <div
-                  key={item.id}
+                  key={item._id}
                   className="
                     flex-[0_0_auto]
                     flex
