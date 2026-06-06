@@ -5,6 +5,7 @@ import useSWR from 'swr'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import { useCallback, useRef } from 'react'
+import Link from 'next/link'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
@@ -47,8 +48,9 @@ export default function CategoryCarousel() {
           <div className="relative max-w-330 mx-auto px-4 overflow-hidden" ref={emblaRef} dir="rtl">
             <div className="flex items-center gap-16 p-4 my-9">
               {data.map((item) => (
-                <div
+                <Link
                   key={item._id}
+                  href={`/${item.en_name}Category`}
                   className="
                     flex-[0_0_auto]
                     flex
@@ -80,7 +82,7 @@ export default function CategoryCarousel() {
                   </div>
 
                   <span className="font-medium text-center whitespace-nowrap">{item.name}</span>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
