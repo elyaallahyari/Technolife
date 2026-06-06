@@ -23,7 +23,7 @@ const topMobiles = [
     id: 2,
     name: 'آیفون',
     image: ImageIphone,
-    href: '/IphoneCategory'
+    href: '/iphoneCategory'
   },
   {
     id: 3,
