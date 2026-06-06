@@ -49,7 +49,7 @@ export default function IphoneCategorySection() {
           </div>
 
           <Link
-            href={'/IphoneCategory'}
+            href={'/iphoneCategory'}
             className="flex items-center gap-1 text-sm hover:opacity-80 transition"
           >
             <span>نمایش همه</span>
