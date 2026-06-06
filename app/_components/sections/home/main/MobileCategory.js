@@ -46,7 +46,7 @@ export default function MobileCategory() {
       <section className="relative overflow-hidden rounded-xl border bg-transparent border-gray-400 h-129">
         <div className="flex items-center justify-between p-9">
           <div className="flex items-center gap-3">
-            <span className="font-bold text-xl">پرچمداران هوشمند</span>
+            <span className="font-bold text-xl">دسته‌بندی آیفون</span>
           </div>
 
           <Link
