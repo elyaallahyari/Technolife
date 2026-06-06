@@ -7,6 +7,7 @@ import TopMobileBrands from '@/app/_components/sections/home/main/TopMobileBrand
 import SingleFullWidthBanner from '@/app/_components/sections/home/main/SingleFullWidthBanner'
 import TopBrands from '@/app/_components/sections/home/main/TopBrands'
 import IphoneCategorySection from '@/app/_components/sections/home/main/IphoneCategorySection'
+import LaptopCategorySection from '@/app/_components/sections/home/main/LaptopCategorySection'
 
 export const metadata = {
   title: 'فروشگاه اینترنتی تکنولایف',
@@ -24,6 +25,7 @@ export default function Home() {
       <SecondTripletBanners />
       <TopMobileBrands />
       <SingleFullWidthBanner />
+      <LaptopCategorySection />
       <TopBrands />
     </>
   )
