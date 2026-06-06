@@ -8,25 +8,30 @@ import SingleFullWidthBanner from '@/app/_components/sections/home/main/SingleFu
 import TopBrands from '@/app/_components/sections/home/main/TopBrands'
 import IphoneCategorySection from '@/app/_components/sections/home/main/IphoneCategorySection'
 import LaptopCategorySection from '@/app/_components/sections/home/main/LaptopCategorySection'
+import { Suspense } from 'react'
+import Loading from './loading'
 
 export const metadata = {
   title: 'فروشگاه اینترنتی تکنولایف',
   description: 'وب‌سایت فروشگاه اینترنتی تکنولایف'
 }
 
-export default function Home() {
+export default async function Home() {
+  await new Promise((resolve) => setTimeout(resolve, 2000))
   return (
     <>
-      <Carousel />
-      <CategoryCarousel />
-      <TechnoTime />
-      <CenterTripletBanners />
-      <IphoneCategorySection />
-      <SecondTripletBanners />
-      <TopMobileBrands />
-      <SingleFullWidthBanner />
-      <LaptopCategorySection />
-      <TopBrands />
+      <Suspense fallback={<Loading />}>
+        <Carousel />
+        <CategoryCarousel />
+        <TechnoTime />
+        <CenterTripletBanners />
+        <IphoneCategorySection />
+        <SecondTripletBanners />
+        <TopMobileBrands />
+        <SingleFullWidthBanner />
+        <LaptopCategorySection />
+        <TopBrands />
+      </Suspense>
     </>
   )
 }
