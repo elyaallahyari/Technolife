@@ -4,32 +4,38 @@ import ImageIphone from '@/public/media/static_phone_iphone.webp'
 import ImageHonor from '@/public/media/static_phone_honor.webp'
 import ImageXiaomi from '@/public/media/static_phone_xiaomi.webp'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const topMobiles = [
   {
     id: 0,
     name: 'سامسونگ',
-    image: ImageSamsung
+    image: ImageSamsung,
+    href: '#'
   },
   {
     id: 1,
     name: 'پوکو',
-    image: ImagePoco
+    image: ImagePoco,
+    href: '#'
   },
   {
     id: 2,
     name: 'آیفون',
-    image: ImageIphone
+    image: ImageIphone,
+    href: '/IphoneCategory'
   },
   {
     id: 3,
     name: 'آنر',
-    image: ImageHonor
+    image: ImageHonor,
+    href: '#'
   },
   {
     id: 4,
     name: 'شیائومی',
-    image: ImageXiaomi
+    image: ImageXiaomi,
+    href: '#'
   }
 ]
 
@@ -40,10 +46,14 @@ export default function TopMobileBrands() {
       <div className="flex flex-row gap-6  flex-wrap">
         {topMobiles &&
           topMobiles.map((item) => (
-            <div key={item.id} className="flex flex-col items-center justify-center cursor-pointer">
+            <Link
+              key={item.id}
+              href={item.href}
+              className="flex flex-col items-center justify-center cursor-pointer"
+            >
               <Image src={item.image} alt={item.name} width={180} height={180}></Image>
               <span>{item.name}</span>
-            </div>
+            </Link>
           ))}
       </div>
     </div>
