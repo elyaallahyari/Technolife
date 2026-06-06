@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import useSWR from 'swr'
 import Link from 'next/link'
-import SaleTimer from '@/app/_components/ui/SaleTimer'
 import { useRef, useCallback } from 'react'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
@@ -50,7 +49,7 @@ export default function MobileCategory() {
           </div>
 
           <Link
-            href={'/sale'}
+            href={'/mobileCategory'}
             className="flex items-center gap-1 text-sm hover:opacity-80 transition"
           >
             <span>نمایش همه</span>
