@@ -6,7 +6,7 @@ import SecondTripletBanners from '@/app/_components/sections/home/main/SecondTri
 import TopMobileBrands from '@/app/_components/sections/home/main/TopMobileBrands'
 import SingleFullWidthBanner from '@/app/_components/sections/home/main/SingleFullWidthBanner'
 import TopBrands from '@/app/_components/sections/home/main/TopBrands'
-import MobileCategory from '@/app/_components/sections/home/main/MobileCategory'
+import IphoneCategory from '@/app/_components/sections/home/main/IphoneCategory'
 
 export const metadata = {
   title: 'فروشگاه اینترنتی تکنولایف',
@@ -20,7 +20,7 @@ export default function Home() {
       <CategoryCarousel />
       <TechnoTime />
       <CenterTripletBanners />
-      <MobileCategory />
+      <IphoneCategory />
       <SecondTripletBanners />
       <TopMobileBrands />
       <SingleFullWidthBanner />

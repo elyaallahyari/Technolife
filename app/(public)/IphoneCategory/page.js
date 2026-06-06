@@ -18,7 +18,7 @@ async function getMobileCategories() {
   return res.json()
 }
 
-export default async function MobileCategory() {
+export default async function IphoneCategory() {
   const data = await getMobileCategories()
 
   return (

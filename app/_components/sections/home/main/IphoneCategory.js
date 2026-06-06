@@ -10,7 +10,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
-export default function MobileCategory() {
+export default function IphoneCategory() {
   const { data, isLoading, error } = useSWR(
     'http://localhost:4000/api/product/category/iphone',
     fetcher
@@ -49,7 +49,7 @@ export default function MobileCategory() {
           </div>
 
           <Link
-            href={'/mobileCategory'}
+            href={'/IphoneCategory'}
             className="flex items-center gap-1 text-sm hover:opacity-80 transition"
           >
             <span>نمایش همه</span>
