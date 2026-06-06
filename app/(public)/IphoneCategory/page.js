@@ -6,7 +6,7 @@ export const metadata = {
   description: 'لیست موبایل‌های آیفون'
 }
 
-async function getMobileCategories() {
+async function getIphoneCategories() {
   const res = await fetch('http://localhost:4000/api/product/category/iphone', {
     cache: 'no-store'
   })
@@ -18,8 +18,8 @@ async function getMobileCategories() {
   return res.json()
 }
 
-export default async function IphoneCategory() {
-  const data = await getMobileCategories()
+export default async function IphoneCategoryPage() {
+  const data = await getIphoneCategories()
 
   return (
     <>

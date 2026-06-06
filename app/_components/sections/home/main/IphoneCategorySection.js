@@ -10,7 +10,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
-export default function IphoneCategory() {
+export default function IphoneCategorySection() {
   const { data, isLoading, error } = useSWR(
     'http://localhost:4000/api/product/category/iphone',
     fetcher
