@@ -2,6 +2,8 @@
 
 import useSWRMutation from 'swr/mutation'
 import { mutate } from 'swr'
+import { toast } from 'react-toastify'
+import { useRouter } from 'next/navigation'
 
 async function SendData(url, { arg }) {
   return fetch(url, {
@@ -13,6 +15,8 @@ async function SendData(url, { arg }) {
 }
 
 export default function SignUpForm() {
+  const router = useRouter()
+
   const { trigger, isMutating } = useSWRMutation('http://localhost:4000/api/auth/sign-up', SendData)
 
   const formHandler = async (formData) => {
@@ -21,8 +25,14 @@ export default function SignUpForm() {
       email: formData.get('email'),
       password: formData.get('password')
     }
-    await trigger(payload)
-    mutate()
+    try {
+      await trigger(payload)
+      mutate()
+      toast.success('ثبت نام با موفقیت انجام شد!')
+      router.replace('/sign-in')
+    } catch (error) {
+      alert('خطا: ' + error.message)
+    }
   }
 
   return (
