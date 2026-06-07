@@ -2,10 +2,12 @@ import AdvertisingBanner from '@/app/_components/sections/home/header/Advertisin
 import MainHeader from '@/app/_components/sections/home/header/MainHeader'
 import HorizontalMenu from '@/app/_components/sections/home/header/HorizontalMenu'
 import Footerr from '@/app/_components/sections/home/footer/Footer'
+import { ToastContainer } from 'react-toastify'
 
 export default function HomeLayout({ children }) {
   return (
     <>
+      <ToastContainer position="top-right" />
       <section>
         <AdvertisingBanner />
       </section>

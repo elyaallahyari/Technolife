@@ -3,6 +3,7 @@ import Logo from '@/public/media/logo_new.svg'
 
 import Link from 'next/link'
 import SignUpForm from '@/app/_components/sections/auth/sign-up-form'
+import { ToastContainer } from 'react-toastify'
 
 export const metadata = {
   title: 'ثبت‌نام  |  فروشگاه تکنولایف',
@@ -12,6 +13,8 @@ export const metadata = {
 export default async function SignUp() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen w-full">
+      <ToastContainer position="top-right" />
+
       <div className="flex flex-col items-center justify-center h-full! p-4 pt-8 w-113 pb-8  2xl:h-screen! 2xl:p-10.5 2xl::shadow-1800">
         <Link href={'/'}>
           <Image alt="Technolife logo" width={184} height={50} priority src={Logo}></Image>
