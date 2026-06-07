@@ -7,6 +7,9 @@ import { IoExit } from 'react-icons/io5'
 import { BiSolidCategory } from 'react-icons/bi'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
+import useSWRMutation from 'swr/mutation'
+import { mutate } from 'swr'
+import { useRouter } from 'next/navigation'
 
 const menuItem = [
   {
@@ -41,8 +44,36 @@ const menuItem = [
   }
 ]
 
+async function ExitHandler(url, { arg }) {
+  return fetch(url, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    credentials: 'include'
+  }).then((res) => res.json())
+}
+
 export default function SidebarDashboard() {
   const pathname = usePathname()
+  const router = useRouter()
+
+  const { trigger, isMutating } = useSWRMutation(
+    'http://localhost:4000/api/auth/sign-out',
+    ExitHandler
+  )
+
+  const onExit = async () => {
+    if (!confirm('آیا مایل به خروج هستید؟')) return
+
+    try {
+      await trigger()
+      mutate()
+      router.replace('/')
+    } catch (error) {
+      alert('خطا در خروج: ' + error.message)
+    }
+  }
 
   return (
     <>
@@ -68,7 +99,10 @@ export default function SidebarDashboard() {
             })}
 
           <li className="flex flex-row items-center w-full ">
-            <div className=" hover:bg-gray-100 w-30 flex items-center gap-2 p-3 rounded-xl cursor-pointer">
+            <div
+              className=" hover:bg-gray-100 w-30 flex items-center gap-2 p-3 rounded-xl cursor-pointer"
+              onClick={onExit}
+            >
               <span>
                 <IoExit />
               </span>
