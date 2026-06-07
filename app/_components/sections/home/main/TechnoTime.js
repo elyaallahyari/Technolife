@@ -46,7 +46,7 @@ export default function TechnoTime() {
   return (
     <div className="p-8">
       <section
-        className="relative overflow-hidden rounded-2xl bg-cover bg-center h-129"
+        className="px-1 relative overflow-hidden rounded-2xl bg-cover bg-center h-129"
         style={{
           backgroundImage: `url(${Background.src})`
         }}
