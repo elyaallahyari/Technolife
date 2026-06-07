@@ -10,6 +10,7 @@ import Link from 'next/link'
 import useSWRMutation from 'swr/mutation'
 import { mutate } from 'swr'
 import { useRouter } from 'next/navigation'
+import { toast } from 'react-toastify'
 
 const menuItem = [
   {
@@ -69,6 +70,7 @@ export default function SidebarDashboard() {
     try {
       await trigger()
       mutate()
+      toast.error('از سایت خارج شدید!')
       router.replace('/')
     } catch (error) {
       alert('خطا در خروج: ' + error.message)
