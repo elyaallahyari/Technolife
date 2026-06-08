@@ -18,8 +18,10 @@ import Slider10 from '@/public/media/SlideHeroBanner10.webp'
 import Slider11 from '@/public/media/SlideHeroBanner11.gif'
 import Slider12 from '@/public/media/SlideHeroBanner12.webp'
 import Slider13 from '@/public/media/SlideHeroBanner13.webp'
+import Slider14 from '@/public/media/SlideHeroBanner14.webp'
 
 const slides = [
+  Slider14,
   Slider13,
   Slider01,
   Slider02,
