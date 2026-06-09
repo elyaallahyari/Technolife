@@ -6,12 +6,22 @@ import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
 
 async function SendData(url, { arg }) {
-  return fetch(url, {
+  const res = await fetch(url, {
     method: 'POST',
-    headers: { 'Content-Type': 'Application/json' },
+    headers: {
+      'Content-Type': 'application/json'
+    },
     credentials: 'include',
     body: JSON.stringify(arg)
-  }).then((res) => res.json())
+  })
+
+  const data = await res.json()
+
+  if (!res.ok) {
+    throw new Error(data.errors || 'خطایی رخ داده است')
+  }
+
+  return data
 }
 
 export default function SignUpForm() {
@@ -25,13 +35,19 @@ export default function SignUpForm() {
       email: formData.get('email'),
       password: formData.get('password')
     }
+
     try {
-      await trigger(payload)
-      mutate()
-      toast.success('ثبت نام با موفقیت انجام شد!')
-      router.replace('/sign-in')
+      const result = await trigger(payload)
+
+      if (result.success) {
+        toast.success(result.message || 'ثبت نام با موفقیت انجام شد')
+
+        router.replace('/sign-in')
+      } else {
+        toast.error(result.message)
+      }
     } catch (error) {
-      alert('خطا: ' + error.message)
+      toast.error(error.message)
     }
   }
 
