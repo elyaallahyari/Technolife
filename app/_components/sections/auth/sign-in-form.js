@@ -1,19 +1,29 @@
 'use client'
 
-import { mutate } from 'swr'
 import useSWRMutation from 'swr/mutation'
 import { useRouter } from 'next/navigation'
 import { toast } from 'react-toastify'
 
 async function SendData(url, { arg }) {
-  return fetch(url, {
+  const res = await fetch(url, {
     method: 'POST',
     headers: {
-      'Content-type': 'Application/json'
+      'Content-Type': 'application/json'
     },
     credentials: 'include',
     body: JSON.stringify(arg)
-  }).then((res) => res.json())
+  })
+
+  const data = await res.json()
+
+  if (!res.ok) {
+    throw {
+      status: res.status,
+      message: data.message
+    }
+  }
+
+  return data
 }
 
 export default function SignInForm() {
@@ -26,15 +36,21 @@ export default function SignInForm() {
       email: formData.get('email'),
       password: formData.get('password')
     }
+
     try {
-      await trigger(payload)
-      mutate()
-      toast.success('ورود با موفقیت انجام شد!')
-      router.replace('/dashboard/profile')
+      const result = await trigger(payload)
+
+      if (result.success) {
+        toast.success('ورود با موفقیت انجام شد!')
+        router.replace('/dashboard/profile')
+      } else {
+        toast.error(result.message)
+      }
     } catch (error) {
-      alert('خطا: ' + error.message)
+      toast.error(error.message)
     }
   }
+
   return (
     <>
       <form action={formHandler} className="flex flex-col w-full">
