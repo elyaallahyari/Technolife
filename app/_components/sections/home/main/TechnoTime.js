@@ -51,7 +51,6 @@ export default function TechnoTime() {
           backgroundImage: `url(${Background.src})`
         }}
       >
-        {/* Header */}
         <div className="flex items-center justify-between p-3 px-6 text-white">
           <div className="flex items-center gap-3">
             <Image src={logo} width={28} height={28} alt="technotime logo" />
@@ -74,7 +73,6 @@ export default function TechnoTime() {
 
         {data && (
           <>
-            {/* Carousel */}
             <div className="overflow-hidden p-2 mt-4" ref={emblaRef} dir="rtl">
               <div className="flex gap-2">
                 {data.map((item) => (
@@ -107,7 +105,7 @@ export default function TechnoTime() {
                           height={186}
                           className="
                             object-contain
-                            h-[180px]
+                            h-45
                             w-auto
                           "
                         />
@@ -153,7 +151,6 @@ export default function TechnoTime() {
               </div>
             </div>
 
-            {/* Buttons */}
             <button
               onClick={scrollPrev}
               className="
