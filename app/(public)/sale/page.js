@@ -2,6 +2,7 @@ import SaleTimer from '@/app/_components/ui/SaleTimer'
 import Image from 'next/image'
 import Loading from './loading'
 import { Suspense } from 'react'
+import Link from 'next/link'
 
 export const metadata = {
   title: 'محصولات تخفیف‌دار',
@@ -29,7 +30,8 @@ export default async function Sale() {
         <div className="flex flex-wrap justify-center items-center gap-8 p-2 my-4">
           {data &&
             data.map((item) => (
-              <div
+              <Link
+                href={`/product/${item._id}`}
                 key={item._id}
                 className="flex-[0_0_85%] sm:flex-[0_0_45%] lg:flex-[0_0_20%] cursor-pointer"
               >
@@ -79,7 +81,7 @@ export default async function Sale() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
         </div>
       </Suspense>
