@@ -8,7 +8,7 @@ export default function ProductGallery({ images }) {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="relative h-[450px] overflow-hidden rounded-2xl border border-gray-100 bg-white">
+      <div className="relative h-112.5 overflow-hidden rounded-2xl border border-gray-100 bg-white">
         <Image
           src={selectedImage}
           alt="product image"
