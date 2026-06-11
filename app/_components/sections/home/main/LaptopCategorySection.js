@@ -66,7 +66,8 @@ export default function LaptopCategorySection() {
             <div className="overflow-hidden p-2 mt-4" ref={emblaRef} dir="rtl">
               <div className="flex gap-2">
                 {data.products.map((item) => (
-                  <div
+                  <Link
+                    href={`/product/${item._id}`}
                     key={item._id}
                     className="
                               flex-[0_0_85%]
@@ -129,7 +130,7 @@ export default function LaptopCategorySection() {
                         )}
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
