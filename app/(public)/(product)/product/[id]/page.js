@@ -1,27 +1,7 @@
-// import { notFound } from 'next/navigation'
-
-// export default async function SingleProduct({ params }) {
-//   const { id } = await params
-//   const response = await fetch(`http://localhost:4000/api/product/${id}`, {
-//     cache: 'no-store'
-//   })
-//   if (response.status == 404) {
-//     notFound()
-//   }
-//   const product = await response.json()
-//   return (
-//     <section className="flex flex-col justify-center items-center p-5">
-//       <div className="bg-white w-3/4 h-full border rounded-xl border-gray-100 shadow flex flex-col md:flex-row items-center justify-between">
-//         <div>{product.name}</div>
-//         <div></div>
-//       </div>
-//     </section>
-//   )
-// }
-
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import ProductGallery from '@/app/_components/sections/product/ProductGallery'
+import Link from 'next/link'
 
 export default async function SingleProduct({ params }) {
   const { id } = await params
@@ -41,15 +21,19 @@ export default async function SingleProduct({ params }) {
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-8">
-      {/* breadcrumb */}
-
-      <div className="mb-6 text-sm text-gray-500">
-        خانه / {product.category.name} / {product.name}
+      <div className="mb-6 text-sm text-gray-500 flex gap-2">
+        <span>
+          <Link href={'/'}>خانه</Link>
+        </span>
+        <span>/</span>
+        <span>
+          <Link href={`/${product.category?.en_name}Category`}>{product.category?.name}</Link>
+        </span>
+        <span>/</span>
+        <span>{product.name}</span>
       </div>
 
       <div className="flex flex-col-reverse gap-8 lg:flex-row">
-        {/* اطلاعات محصول */}
-
         <div className="flex-1">
           <div className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
             <ProductGallery images={product.media} />
@@ -108,9 +92,7 @@ export default async function SingleProduct({ params }) {
           </div>
         </div>
 
-        {/* باکس خرید */}
-
-        <div className="w-full lg:w-[350px]">
+        <div className="w-full lg:w-87.5">
           <div className="sticky top-24">
             <div className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
               <h3 className="mb-5 text-lg font-bold">اطلاعات خرید</h3>
