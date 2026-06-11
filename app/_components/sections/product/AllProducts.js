@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import useSWR from 'swr'
+import Link from 'next/link'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
@@ -11,7 +12,8 @@ export default function AllProducts() {
     <section className="flex flex-row justify-center items-center flex-wrap gap-6">
       {data ? (
         data.map((item) => (
-          <div
+          <Link
+            href={`/product/${item._id}`}
             key={item._id}
             className="flex flex-col items-center justify-center p-2 rounded-lg border border-[#f0f0f0] shadow max-w-60 h-full max-h-120 w-full"
           >
@@ -61,7 +63,7 @@ export default function AllProducts() {
                 )}
               </div>
             </div>
-          </div>
+          </Link>
         ))
       ) : (
         <div className="text-sm pt-15 pb-30 text-red-500">مشکل در برقراری اطلاعات با سرور...</div>
