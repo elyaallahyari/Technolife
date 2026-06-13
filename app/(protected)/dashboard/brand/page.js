@@ -4,6 +4,8 @@ export const metadata = {
   title: 'برندهای فروشگاه - تکنولایف'
 }
 
+export const dynamic = 'force-dynamic'
+
 export default async function Brands() {
   return (
     <>
