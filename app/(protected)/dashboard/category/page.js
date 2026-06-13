@@ -1,4 +1,5 @@
 import CategorySection from '@/app/_components/sections/dash/category/CategorySection'
+import { getSession } from '@/lib/dal/Auth.dal'
 
 export const metadata = {
   title: 'دسته‌بندی‌های فروشگاه - تکنولایف'
@@ -7,6 +8,8 @@ export const metadata = {
 export const dynamic = 'force-dynamic'
 
 export default async function Categories() {
+  await getSession()
+
   return (
     <>
       <div className="p-2 px-18 flex flex-col items-start justify-center text-[#223c76] gap-20">

@@ -1,5 +1,6 @@
 import ProductSection from '@/app/_components/sections/dash/product/ProductSection'
 import Add from '@/app/_components/ui/add'
+import { requireAuth } from '@/lib/dal/Auth.dal'
 import Link from 'next/link'
 
 export const metadata = {
@@ -9,6 +10,8 @@ export const metadata = {
 export const dynamic = 'force-dynamic'
 
 export default async function Products() {
+  await requireAuth()
+
   return (
     <>
       <div className="p-2 px-18 flex flex-col items-center justify-center text-[#223c76] gap-6 relative">
