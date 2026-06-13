@@ -18,36 +18,17 @@ export default function HorizontalMenu() {
         دسته‌بندی محصولات
       </div>
 
-      <Link href={'/'} className="flex flex-row justify-center items-center gap-2 align-middle">
+      <Link href={'/sale'} className="flex flex-row justify-center items-center gap-2 align-middle">
         <RxTimer className="w-5 h-5" />
-        تونل زمان
-      </Link>
-
-      <Link href={'/'} className="flex flex-row justify-center items-center gap-2 align-middle">
-        <CiShoppingBasket className="w-5 h-5" />
-        خرید سازمانی
-      </Link>
-
-      <Link href={'/'} className="flex flex-row justify-center items-center gap-2 align-middle">
-        <ImGift className="w-5 h-5" />
-        کارت هدیه
-      </Link>
-
-      <Link href={'/'} className="flex flex-row justify-center items-center gap-2 align-middle">
-        <TfiWallet className="w-5 h-5" />
-        خرید اقساطی
-      </Link>
-
-      <Link href={'/'} className="flex flex-row justify-center items-center gap-2 align-middle">
-        <PiCoinsLight className="w-5 h-5" />
-        خرید طلای دیجیتال
+        تخفیفات
       </Link>
 
       <Link
-        href={'/'}
-        className="flex flex-row justify-center items-center gap-2 align-middle text-[#223c78]"
+        href={'/product'}
+        className="flex flex-row justify-center items-center gap-2 align-middle"
       >
-        فروشنده‌شو
+        <CiShoppingBasket className="w-5 h-5" />
+        محصولات
       </Link>
     </nav>
   )
