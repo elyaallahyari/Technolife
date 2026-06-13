@@ -153,58 +153,88 @@ export default function ProductSection() {
         {isLoading ? 'دریافت محصولات فروشگاه...' : 'محصولات فروشگاه'}
       </div>
 
-      <table className="w-full border border-[#f0f0f0] rounded-xl overflow-hidden text-center">
-        <thead className="bg-[#f8f8f8]">
-          <tr className="*:p-3 text-sm">
-            <th>نام</th>
+      <div className="hidden md:block w-full">
+        <table className="w-full border border-[#f0f0f0] rounded-xl overflow-hidden text-center">
+          <thead className="bg-[#f8f8f8]">
+            <tr className="*:p-3 text-sm">
+              <th>نام</th>
+              <th>قیمت</th>
+              <th>تخفیف</th>
+              <th>دسته‌بندی</th>
+              <th>برند</th>
+              <th>ویرایش</th>
+              <th>حذف</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products?.map((product) => (
+              <tr
+                key={product._id}
+                className="border-b border-[#f0f0f0] hover:bg-[#fafafa] transition"
+              >
+                <td className="p-3">{product.name}</td>
+                <td className="p-3">{product.price.toLocaleString()}</td>
+                <td className="p-3">{product.sale}%</td>
+                <td className="p-3">{product.category?.name}</td>
+                <td className="p-3">{product.brand?.name}</td>
+                <td className="p-3">
+                  <button onClick={() => openEditModal(product)} className="cursor-pointer">
+                    <FiEdit3 size={18} className="text-amber-400 hover:text-amber-500" />
+                  </button>
+                </td>
+                <td className="p-3">
+                  <button onClick={() => deleteHandler(product._id)} className="cursor-pointer">
+                    <RiDeleteBin5Line size={18} className="text-red-400 hover:text-red-500" />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
-            <th>قیمت</th>
-
-            <th>تخفیف</th>
-
-            <th>دسته‌بندی</th>
-
-            <th>برند</th>
-
-            <th>ویرایش</th>
-
-            <th>حذف</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {products?.map((product) => (
-            <tr
-              key={product._id}
-              className="border-b border-[#f0f0f0] hover:bg-[#fafafa] transition"
-            >
-              <td className="p-3">{product.name}</td>
-
-              <td className="p-3">{product.price.toLocaleString()}</td>
-
-              <td className="p-3">{product.sale}%</td>
-
-              <td className="p-3">{product.category?.name}</td>
-
-              <td className="p-3">{product.brand?.name}</td>
-
-              <td className="p-3">
+      <div className="flex md:hidden flex-col gap-3 w-full">
+        {products?.map((product) => (
+          <div
+            key={product._id}
+            className="border border-[#f0f0f0] rounded-xl p-4 flex flex-col gap-2 text-sm"
+          >
+            <div className="flex justify-between items-center">
+              <span className="font-bold text-base">{product.name}</span>
+              <div className="flex gap-3">
                 <button onClick={() => openEditModal(product)} className="cursor-pointer">
                   <FiEdit3 size={18} className="text-amber-400 hover:text-amber-500" />
                 </button>
-              </td>
-
-              <td className="p-3">
                 <button onClick={() => deleteHandler(product._id)} className="cursor-pointer">
                   <RiDeleteBin5Line size={18} className="text-red-400 hover:text-red-500" />
                 </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+              </div>
+            </div>
 
-      {/* MODAL */}
+            <hr className="border-[#f0f0f0]" />
+
+            <div className="flex justify-between">
+              <span className="text-gray-400">قیمت</span>
+              <span>{product.price.toLocaleString()} تومان</span>
+            </div>
+
+            <div className="flex justify-between">
+              <span className="text-gray-400">تخفیف</span>
+              <span>{product.sale}%</span>
+            </div>
+
+            <div className="flex justify-between">
+              <span className="text-gray-400">دسته‌بندی</span>
+              <span>{product.category?.name}</span>
+            </div>
+
+            <div className="flex justify-between">
+              <span className="text-gray-400">برند</span>
+              <span>{product.brand?.name}</span>
+            </div>
+          </div>
+        ))}
+      </div>
 
       {isOpen && (
         <section className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
@@ -216,8 +246,6 @@ export default function ProductSection() {
             <h2 className="text-2xl font-bold mb-8">ویرایش محصول</h2>
 
             <form onSubmit={submitEditHandler} className="flex flex-wrap gap-6">
-              {/* NAME */}
-
               <section className="border border-[#f0f0f0] rounded-xl flex flex-col text-sm flex-1 min-w-75">
                 <div className="p-3 bg-[#fcfeff] font-bold rounded-t-xl">نام محصول</div>
 
