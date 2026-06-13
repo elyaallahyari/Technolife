@@ -1,4 +1,5 @@
 import UserInfo from '@/app/_components/sections/dash/user-info/UserInfo'
+import { requireAuth } from '@/lib/dal/Auth.dal'
 import { BiUser } from 'react-icons/bi'
 
 export const metadata = {
@@ -8,6 +9,8 @@ export const metadata = {
 export const dynamic = 'force-dynamic'
 
 export default async function Profile() {
+  const session = await requireAuth()
+
   return (
     <section className="p-9 px-18 flex flex-col items-start justify-center text-[#223c76] gap-20">
       <div className="flex flex-row items-center gap-2">
@@ -15,7 +18,7 @@ export default async function Profile() {
         <p className="font-extrabold text-xl">مشخصات فردی</p>
       </div>
 
-      <UserInfo />
+      <UserInfo userId={session.id} />
     </section>
   )
 }

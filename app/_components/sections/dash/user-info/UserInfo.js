@@ -1,8 +1,8 @@
 import { BiUser } from 'react-icons/bi'
 
-export default function UserInfo() {
+export default function UserInfo({ userId }) {
   return (
-    <div className="flex flex-row items-center gap-10 w-full relative">
+    <div className="flex flex-row items-center gap-3 w-full relative">
       <div className="flex items-center justify-center p-8 bg-white border border-[#f0f0f0] rounded-full shadow-xl z-10">
         <BiUser size={24} className="font-extralight" />
       </div>
@@ -20,9 +20,9 @@ export default function UserInfo() {
           <span className="text-[#5f6c91]">شماره موبایل</span>
           <span>-</span>
         </div>
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center gap-2">
           <span className="text-[#5f6c91]">کد ملی</span>
-          <span>-</span>
+          <span className="text-xs text-[#000511]">{userId}</span>
         </div>
         <div className="flex flex-col items-center justify-center">
           <span className="text-[#5f6c91]">دریافت خبرنامه</span>
