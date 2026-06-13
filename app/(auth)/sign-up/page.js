@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Logo from '@/public/media/logo_new.svg'
-
 import Link from 'next/link'
 import SignUpForm from '@/app/_components/sections/auth/sign-up-form'
 import { ToastContainer } from 'react-toastify'

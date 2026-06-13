@@ -3,6 +3,7 @@
 import useSWRMutation from 'swr/mutation'
 import { useRouter } from 'next/navigation'
 import { toast } from 'react-toastify'
+import { useState } from 'react'
 
 async function SendData(url, { arg }) {
   const res = await fetch(url, {
@@ -17,10 +18,7 @@ async function SendData(url, { arg }) {
   const data = await res.json()
 
   if (!res.ok) {
-    throw {
-      status: res.status,
-      message: data.message
-    }
+    throw data
   }
 
   return data
@@ -28,10 +26,12 @@ async function SendData(url, { arg }) {
 
 export default function SignInForm() {
   const router = useRouter()
+  const [errors, setErrors] = useState([])
 
   const { trigger, isMutating } = useSWRMutation('http://localhost:4000/api/auth/sign-in', SendData)
 
   const formHandler = async (formData) => {
+    setErrors([])
     const payload = {
       email: formData.get('email'),
       password: formData.get('password')
@@ -47,7 +47,7 @@ export default function SignInForm() {
         toast.error(result.message)
       }
     } catch (error) {
-      toast.error(error.message)
+      setErrors(error.errors || [])
     }
   }
 
@@ -63,6 +63,16 @@ export default function SignInForm() {
           رمز خود را وارد کنید
         </label>
         <input type="password" name="password" className="border border-gray-200 p-3 rounded-xl" />
+
+        {errors.length > 0 && (
+          <div className="mt-4 space-y-1">
+            {errors.map((err, index) => (
+              <p key={index} className="text-xs text-red-500">
+                {err}
+              </p>
+            ))}
+          </div>
+        )}
 
         <button
           type="submit"

@@ -1,9 +1,9 @@
 'use client'
 
 import useSWRMutation from 'swr/mutation'
-import { mutate } from 'swr'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 
 async function SendData(url, { arg }) {
   const res = await fetch(url, {
@@ -18,7 +18,7 @@ async function SendData(url, { arg }) {
   const data = await res.json()
 
   if (!res.ok) {
-    throw new Error(data.errors || 'خطایی رخ داده است')
+    throw data
   }
 
   return data
@@ -26,10 +26,12 @@ async function SendData(url, { arg }) {
 
 export default function SignUpForm() {
   const router = useRouter()
+  const [errors, setErrors] = useState([])
 
   const { trigger, isMutating } = useSWRMutation('http://localhost:4000/api/auth/sign-up', SendData)
 
   const formHandler = async (formData) => {
+    setErrors([])
     const payload = {
       name: formData.get('name'),
       email: formData.get('email'),
@@ -47,7 +49,7 @@ export default function SignUpForm() {
         toast.error(result.message)
       }
     } catch (error) {
-      toast.error(error.message)
+      setErrors(error.errors || [])
     }
   }
 
@@ -68,10 +70,20 @@ export default function SignUpForm() {
       </label>
       <input type="password" name="password" className="border border-gray-200 p-3 rounded-xl" />
 
+      {errors.length > 0 && (
+        <div className="mt-4 space-y-1">
+          {errors.map((err, index) => (
+            <p key={index} className="text-xs text-red-500">
+              {err}
+            </p>
+          ))}
+        </div>
+      )}
+
       <button
         type="submit"
         disabled={isMutating}
-        className="w-full p-3 bg-[#223c76] rounded-xl text-white cursor-pointer mt-20 text-sm font-bold"
+        className="w-full p-3 bg-[#223c76] rounded-xl text-white cursor-pointer mt-6 text-sm font-bold"
       >
         {isMutating ? 'در حال بررسی' : 'ادامه'}
       </button>
