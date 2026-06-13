@@ -4,6 +4,8 @@ export const metadata = {
   title: 'دسته‌بندی‌های فروشگاه - تکنولایف'
 }
 
+export const dynamic = 'force-dynamic'
+
 export default async function Categories() {
   return (
     <>
