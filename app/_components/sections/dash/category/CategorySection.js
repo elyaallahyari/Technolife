@@ -41,19 +41,21 @@ async function DeleteBrand(url, { arg }) {
   }).then((res) => res.json())
 }
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL
+
 export default function CategorySection() {
   const [editingItem, setEditingItem] = useState(null)
-  const { data, isLoading, mutate } = useSWR('http://localhost:4000/api/category', fetcher)
+  const { data, isLoading, mutate } = useSWR(`${API_URL}/category`, fetcher)
   const { trigger: CreateTrigger, isMutating: isCreateMutating } = useSWRMutation(
-    'http://localhost:4000/api/category',
+    `${API_URL}/category`,
     CreateBrand
   )
   const { trigger: EditTrigger, isMutating: isEditMutating } = useSWRMutation(
-    'http://localhost:4000/api/category',
+    `${API_URL}/category`,
     EditBrand
   )
   const { trigger: DeleteTrigger, isMutating: isDeleteMutating } = useSWRMutation(
-    'http://localhost:4000/api/category',
+    `${API_URL}/category`,
     DeleteBrand
   )
 

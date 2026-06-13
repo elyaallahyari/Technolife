@@ -6,13 +6,15 @@ import { FaCheck } from 'react-icons/fa6'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL
+
 export default function MediaLibraryModal({
   isVisible,
   selectedItems,
   onToggleSelection,
   onClose
 }) {
-  const { data: media } = useSWR('http://localhost:4000/api/media', fetcher)
+  const { data: media } = useSWR(`${API_URL}/media`, fetcher)
 
   if (!isVisible) return null
 

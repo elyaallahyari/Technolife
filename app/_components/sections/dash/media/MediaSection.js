@@ -40,12 +40,14 @@ async function DeleteBrand(url, { arg }) {
   }).then((res) => res.json())
 }
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL
+
 export default function MediaSection() {
   const [editingItem, setEditingItem] = useState(null)
-  const { data, isLoading, mutate } = useSWR('http://localhost:4000/api/media', fetcher)
-  const { trigger: CreateTrigger } = useSWRMutation('http://localhost:4000/api/media', CreateBrand)
-  const { trigger: EditTrigger } = useSWRMutation('http://localhost:4000/api/media', EditBrand)
-  const { trigger: DeleteTrigger } = useSWRMutation('http://localhost:4000/api/media', DeleteBrand)
+  const { data, isLoading, mutate } = useSWR(`${API_URL}/media`, fetcher)
+  const { trigger: CreateTrigger } = useSWRMutation(`${API_URL}/media`, CreateBrand)
+  const { trigger: EditTrigger } = useSWRMutation(`${API_URL}/media`, EditBrand)
+  const { trigger: DeleteTrigger } = useSWRMutation(`${API_URL}/media`, DeleteBrand)
 
   const action = async (formData) => {
     const payload = {

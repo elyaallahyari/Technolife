@@ -6,8 +6,10 @@ import Link from 'next/link'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL
+
 export default function AllProducts() {
-  const { data } = useSWR('http://localhost:4000/api/product', fetcher)
+  const { data } = useSWR(`${API_URL}/product`, fetcher)
   return (
     <section className="flex flex-row justify-center items-center flex-wrap gap-6">
       {data ? (

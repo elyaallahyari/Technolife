@@ -8,9 +8,11 @@ import { GrFormAdd } from 'react-icons/gr'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL
+
 export default function AddProduct() {
-  const { data: brand } = useSWR('http://localhost:4000/api/brand', fetcher)
-  const { data: category } = useSWR('http://localhost:4000/api/category', fetcher)
+  const { data: brand } = useSWR(`${API_URL}/brand`, fetcher)
+  const { data: category } = useSWR(`${API_URL}/category`, fetcher)
 
   const [showGallery, setShowGallery] = useState(false)
 
@@ -45,6 +47,8 @@ export default function AddProduct() {
     }))
   }
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL
+
   const submitHandler = async (e) => {
     e.preventDefault()
 
@@ -58,7 +62,7 @@ export default function AddProduct() {
     }
 
     try {
-      const res = await fetch('http://localhost:4000/api/product', {
+      const res = await fetch(`${API_URL}/product`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

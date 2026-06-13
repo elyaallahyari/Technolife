@@ -24,11 +24,13 @@ async function SendData(url, { arg }) {
   return data
 }
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL
+
 export default function SignInForm() {
   const router = useRouter()
   const [errors, setErrors] = useState([])
 
-  const { trigger, isMutating } = useSWRMutation('http://localhost:4000/api/auth/sign-in', SendData)
+  const { trigger, isMutating } = useSWRMutation(`${API_URL}/auth/sign-in`, SendData)
 
   const formHandler = async (formData) => {
     setErrors([])

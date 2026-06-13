@@ -8,8 +8,10 @@ export const metadata = {
   description: 'لیست لپ‌تاپ ها '
 }
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL
+
 async function getLaptopCategories() {
-  const res = await fetch('http://localhost:4000/api/product/category/laptop', {
+  const res = await fetch(`${API_URL}/product/category/laptop`, {
     cache: 'no-store'
   })
 

@@ -10,11 +10,10 @@ import useEmblaCarousel from 'embla-carousel-react'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL
+
 export default function IphoneCategorySection() {
-  const { data, isLoading, error } = useSWR(
-    'http://localhost:4000/api/product/category/iphone',
-    fetcher
-  )
+  const { data, isLoading, error } = useSWR(`${API_URL}/product/category/iphone`, fetcher)
 
   const autoplay = useRef(
     Autoplay({

@@ -55,14 +55,13 @@ async function ExitHandler(url, { arg }) {
   }).then((res) => res.json())
 }
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL
+
 export default function SidebarDashboard() {
   const pathname = usePathname()
   const router = useRouter()
 
-  const { trigger, isMutating } = useSWRMutation(
-    'http://localhost:4000/api/auth/sign-out',
-    ExitHandler
-  )
+  const { trigger, isMutating } = useSWRMutation(`${API_URL}/auth/sign-out`, ExitHandler)
 
   const onExit = async () => {
     if (!confirm('آیا مایل به خروج هستید؟')) return

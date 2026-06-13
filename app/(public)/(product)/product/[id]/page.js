@@ -5,8 +5,9 @@ import Link from 'next/link'
 
 export default async function SingleProduct({ params }) {
   const { id } = await params
+  const API_URL = process.env.NEXT_PUBLIC_API_URL
 
-  const response = await fetch(`http://localhost:4000/api/product/${id}`, {
+  const response = await fetch(`${API_URL}/product/${id}`, {
     cache: 'no-store'
   })
 

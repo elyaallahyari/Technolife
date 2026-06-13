@@ -8,8 +8,10 @@ export const metadata = {
   description: 'لیست موبایل‌های آیفون'
 }
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL
+
 async function getIphoneCategories() {
-  const res = await fetch('http://localhost:4000/api/product/category/iphone', {
+  const res = await fetch(`${API_URL}/product/category/iphone`, {
     cache: 'no-store'
   })
 

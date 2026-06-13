@@ -11,9 +11,11 @@ import useSWRMutation from 'swr/mutation'
 
 import MediaLibraryModal from '../modal/MediaLibraryModal'
 
-const PRODUCT_API = 'http://localhost:4000/api/product'
-const BRAND_API = 'http://localhost:4000/api/brand'
-const CATEGORY_API = 'http://localhost:4000/api/category'
+const API_URL = process.env.NEXT_PUBLIC_API_URL
+
+const PRODUCT_API = `${API_URL}/product`
+const BRAND_API = `${API_URL}/brand`
+const CATEGORY_API = `${API_URL}/category`
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
