@@ -48,7 +48,7 @@ export default function LaptopCategorySection() {
           </div>
 
           <Link
-            href={'/laptopCategory'}
+            href={'/category/laptop'}
             className="flex items-center gap-1 text-sm hover:opacity-80 transition"
           >
             <span>نمایش همه</span>
