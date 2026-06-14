@@ -55,7 +55,7 @@ export default function TechnoTime() {
       >
         <div className="flex items-center justify-between p-3 px-6 text-white">
           <div className="flex items-center gap-3">
-            <Image src={logo} width={28} height={28} alt="technotime logo" />
+            <Image unoptimized src={logo} width={28} height={28} alt="technotime logo" priority />
 
             <span className="font-bold text-xl">تکنو تایم</span>
           </div>
@@ -102,15 +102,13 @@ export default function TechnoTime() {
                     >
                       <div className="flex justify-center">
                         <Image
+                          unoptimized
                           src={item.media?.[0]?.url}
                           alt={item.name}
                           width={186}
                           height={186}
-                          className="
-                            object-contain
-                            h-45
-                            w-auto
-                          "
+                          className="object-contain h-45 w-auto"
+                          priority
                         />
                       </div>
 

@@ -67,19 +67,13 @@ export default function CategoryCarousel() {
                     "
                   >
                     <Image
+                      unoptimized
                       src={item.image}
                       alt={item.name}
                       width={112}
                       height={112}
-                      className="
-                        w-28
-                        h-28
-                        rounded-full
-                        border
-                        border-[#f0f0f0]
-                        m-1
-                        object-cover cursor-pointer
-                      "
+                      className="w-28 h-28 rounded-full border border-[#f0f0f0] m-1 object-cover cursor-pointer"
+                      priority
                     />
                   </div>
 

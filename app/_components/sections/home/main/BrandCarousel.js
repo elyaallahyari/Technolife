@@ -54,11 +54,13 @@ export default function BrandCarousel() {
                   className="flex-[0_0_auto] flex items-center border-l border-[#8a8f9a] p-9"
                 >
                   <Image
+                    unoptimized
                     src={item.logo}
                     alt={item.name}
                     width={116}
                     height={112}
                     className="cursor-pointer"
+                    priority
                   />
                 </div>
               ))}

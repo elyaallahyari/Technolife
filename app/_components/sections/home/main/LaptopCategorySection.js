@@ -68,30 +68,18 @@ export default function LaptopCategorySection() {
                   <Link
                     href={`/product/${item._id}`}
                     key={item._id}
-                    className="
-                              flex-[0_0_85%]
-                              sm:flex-[0_0_45%]
-                              lg:flex-[0_0_16%]
-                            "
+                    className="flex-[0_0_85%] sm:flex-[0_0_45%] lg:flex-[0_0_16%]"
                   >
-                    <div
-                      className="
-                                bg-white
-                                px-4
-                                h-full border-l border-gray-300
-                              "
-                    >
+                    <div className="bg-white px-4 h-full border-l border-gray-300">
                       <div className="flex justify-center">
                         <Image
+                          unoptimized
                           src={item.media?.[0]?.url}
                           alt={item.name}
                           width={186}
                           height={186}
-                          className="
-                                    object-contain
-                                    h-45
-                                    w-auto
-                                  "
+                          className="object-contain h-45"
+                          priority
                         />
                       </div>
 
@@ -136,48 +124,14 @@ export default function LaptopCategorySection() {
 
             <button
               onClick={scrollPrev}
-              className="
-                        absolute
-                        top-1/2
-                        right-3
-                        -translate-y-1/2
-                        z-20
-                        w-11
-                        h-11
-                        rounded-full
-                        bg-white/99
-                        shadow-lg
-                        flex
-                        items-center
-                        justify-center
-                        hover:scale-105
-                        transition
-                        cursor-pointer
-                      "
+              className="absolute top-1/2 right-3 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/99 shadow-lg flex items-center justify-center hover:scale-105 transition cursor-pointer"
             >
               <FiChevronRight size={20} />
             </button>
 
             <button
               onClick={scrollNext}
-              className="
-                        absolute
-                        top-1/2
-                        left-3
-                        -translate-y-1/2
-                        z-20
-                        w-11
-                        h-11
-                        rounded-full
-                        bg-white/99
-                        shadow-lg
-                        flex
-                        items-center
-                        justify-center
-                        hover:scale-105
-                        transition
-                        cursor-pointer
-                      "
+              className="absolute top-1/2 left-3 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/99 shadow-lg flex items-center justify-center hover:scale-105 transition cursor-pointer"
             >
               <FiChevronLeft size={20} />
             </button>

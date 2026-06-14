@@ -388,11 +388,13 @@ export default function ProductSection() {
                         className="border border-[#f0f0f0] rounded-xl overflow-hidden"
                       >
                         <Image
+                          unoptimized
                           src={item.url}
                           width={120}
                           height={120}
                           alt={item.url}
                           className="object-cover w-30 h-30"
+                          priority
                         />
                       </div>
                     ))}

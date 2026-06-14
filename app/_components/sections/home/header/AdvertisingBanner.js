@@ -5,6 +5,7 @@ export default function AdvertisingBanner() {
   return (
     <>
       <Image
+        unoptimized
         src={Banner}
         width={500}
         height={12}

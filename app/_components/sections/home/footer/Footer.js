@@ -247,7 +247,7 @@ export default function Footerr() {
     <>
       <footer className="flex flex-col items-center justify-center rounded-xl bg-linear-to-r from-[#0079b1] to-[#1b3570]  w-screen  text-white sticky bottom-0 p-5 gap-10">
         <div className="flex flex-row justify-between items-center mt-9 w-full">
-          <Image src={Logo} width={174} height={50} alt="Logo of Technolife"></Image>
+          <Image src={Logo} width={174} height={50} alt="Logo of Technolife" priority></Image>
           <ScrollToTopButton />
         </div>
         <hr className="w-full" />

@@ -13,7 +13,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL
 
 async function getSaleProducts() {
   const res = await fetch(`${API_URL}/product/sale`, {
-    cache: 'no-store'
+    naxt: { revalidate: 600 }
   })
 
   if (!res.ok) {
@@ -40,11 +40,13 @@ export default async function Sale() {
                 <div className="bg-white rounded-2xl p-4 h-full shadow">
                   <div className="flex justify-center">
                     <Image
+                      unoptimized
                       src={item.media?.[0]?.url}
                       alt={item.name}
                       width={186}
                       height={186}
-                      className=" object-contain h-45 w-auto"
+                      className="object-contain h-45 w-auto"
+                      priority
                     />
                   </div>
 

@@ -85,6 +85,7 @@ export default function Carousel() {
           {slides.map((src, index) => (
             <div key={index} className="relative flex-[0_0_100%]">
               <Image
+                unoptimized
                 src={src}
                 alt={`slide-${index}`}
                 className="w-full h-auto block cursor-pointer"

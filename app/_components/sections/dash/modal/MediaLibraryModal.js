@@ -43,23 +43,17 @@ export default function MediaLibraryModal({
                     <div
                       key={item?._id}
                       onClick={() => onToggleSelection(item)}
-                      className={`
-                        relative cursor-pointer rounded-lg overflow-hidden border-2 transition-all
-                        ${isSelected ? 'border-blue-500 ring-2 ring-blue-200' : 'border-transparent hover:border-gray-300'}
-                      `}
+                      className={`relative aspect-square cursor-pointer overflow-hidden rounded-lg border-2 transition-all ${isSelected ? 'border-blue-500 ring-2 ring-blue-200' : 'border-transparent hover:border-gray-300'}`}
                     >
                       <Image
+                        unoptimized
                         src={item?.url}
-                        width={200}
-                        height={200}
                         alt={item.url}
-                        className="w-full h-40 object-cover"
+                        width={200}
+                        height={50}
+                        priority
+                        className="object-cover"
                       />
-                      {isSelected && (
-                        <div className="absolute top-2 right-2 bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm">
-                          <FaCheck />
-                        </div>
-                      )}
                     </div>
                   )
                 })

@@ -7,7 +7,8 @@ export const metadata = {
   description: 'محصولات فروشگاه اینترنتی تکنولایف'
 }
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 300
+export const dynamic = 'force-static'
 
 export default async function Product() {
   return (

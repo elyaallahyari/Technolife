@@ -11,7 +11,8 @@ const nextConfig = {
         hostname: 'encrypted-tbn0.gstatic.com',
         protocol: 'https'
       }
-    ]
+    ],
+    minimumCacheTTL: 60
   }
 }
 export default nextConfig

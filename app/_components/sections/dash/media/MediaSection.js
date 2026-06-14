@@ -87,7 +87,14 @@ export default function MediaSection() {
               key={item._id}
               className="flex flex-col items-center justify-center text-sm border border-[#f0f0f0] rounded-xl p-1 bg-[#fcfeff] gap-1"
             >
-              <Image src={item.url} alt={`${item._id}-icon`} width={50} height={50}></Image>
+              <Image
+                unoptimized
+                src={item.url}
+                alt={`${item._id}-icon`}
+                width={50}
+                height={50}
+                priority
+              ></Image>
 
               <hr className="text-[#f0f0f0] w-full" />
               <div className="flex justify-evenly gap-3">

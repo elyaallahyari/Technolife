@@ -51,7 +51,14 @@ export default function TopMobileBrands() {
               href={item.href}
               className="flex flex-col items-center justify-center cursor-pointer"
             >
-              <Image src={item.image} alt={item.name} width={180} height={180}></Image>
+              <Image
+                unoptimized
+                src={item.image}
+                alt={item.name}
+                width={180}
+                height={180}
+                priority
+              ></Image>
               <span>{item.name}</span>
             </Link>
           ))}

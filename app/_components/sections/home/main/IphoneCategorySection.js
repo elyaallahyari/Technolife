@@ -68,30 +68,18 @@ export default function IphoneCategorySection() {
                   <Link
                     href={`/product/${item._id}`}
                     key={item._id}
-                    className="
-                              flex-[0_0_85%]
-                              sm:flex-[0_0_45%]
-                              lg:flex-[0_0_16%]
-                            "
+                    className="flex-[0_0_85%] sm:flex-[0_0_45%] lg:flex-[0_0_16%]"
                   >
-                    <div
-                      className="
-                                bg-white
-                                px-4
-                                h-full border-l border-gray-300
-                              "
-                    >
+                    <div className="bg-white px-4 h-full border-l border-gray-300">
                       <div className="flex justify-center">
                         <Image
+                          unoptimized
                           src={item.media?.[0]?.url}
                           alt={item.name}
                           width={186}
                           height={186}
-                          className="
-                                    object-contain
-                                    h-45
-                                    w-auto
-                                  "
+                          className="object-contain h-45 w-auto"
+                          priority
                         />
                       </div>
 

@@ -10,6 +10,7 @@ export default function ProductGallery({ images }) {
     <div className="flex flex-col gap-4">
       <div className="relative h-112.5 overflow-hidden rounded-2xl border border-gray-100 bg-white">
         <Image
+          unoptimized
           src={selectedImage}
           alt="product image"
           fill
@@ -29,10 +30,12 @@ export default function ProductGallery({ images }) {
             }`}
           >
             <Image
+              unoptimized
               src={image.url}
               alt="thumbnail"
               fill
-              className="object-contain bg-white p-1"
+              priority
+              className="object-contain bg-white p-1 w-auto h-auto"
               sizes="80px"
             />
           </button>

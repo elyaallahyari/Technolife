@@ -2,37 +2,69 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL
+
 export const revalidate = 300
 
+async function getCategoryProducts(slug) {
+  const response = await fetch(`${API_URL}/product/category/${slug}`)
+
+  if (!response.ok) {
+    return null
+  }
+
+  return response.json()
+}
+
+export async function generateStaticParams() {
+  const response = await fetch(`${API_URL}/category`)
+
+  if (!response.ok) {
+    return []
+  }
+
+  const categories = await response.json()
+
+  return categories.map((category) => ({
+    slug: category.en_name
+  }))
+}
+
 export async function generateMetadata({ params }) {
-  const { slug } = params
+  const { slug } = await params
+
+  const data = await getCategoryProducts(slug)
+
+  if (!data) {
+    return {
+      title: 'دسته‌بندی یافت نشد',
+      description: 'دسته‌بندی مورد نظر پیدا نشد.'
+    }
+  }
+
+  const categoryName = data.category?.name || slug
 
   return {
-    title: `محصولات دسته‌بندی ${slug}`,
-    description: `محصولات دسته ${slug}`
+    title: `${categoryName} | تکنولایف`,
+    description: `مشاهده محصولات دسته‌بندی ${categoryName}`
   }
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-
 export default async function CategoryPage({ params }) {
-  const { slug } = params
+  const { slug } = await params
 
-  const response = await fetch(`${API_URL}/product/category/${slug}`, {
-    next: { revalidate: 300 }
-  })
+  const data = await getCategoryProducts(slug)
 
-  if (!response.ok) {
+  if (!data) {
     notFound()
   }
 
-  const product = await response.json()
-
-  if (!product || !product.products || product.products.length === 0) {
+  if (!data.products?.length) {
     return (
-      <div className="text-center py-20 flex flex-col items-center justify-center gap-10">
+      <div className="flex flex-col items-center justify-center gap-10 py-20 text-center">
         <p>محصولی در این دسته‌بندی وجود ندارد.</p>
-        <Link href="/" className="bg-blue-500 text-white rounded-xl p-3">
+
+        <Link href="/" className="rounded-xl bg-blue-500 p-3 text-white">
           بازگشت به صفحه اصلی
         </Link>
       </div>
@@ -40,63 +72,74 @@ export default async function CategoryPage({ params }) {
   }
 
   return (
-    <>
-      <div className="flex flex-wrap justify-center items-center gap-8 p-2 my-4">
-        {product &&
-          product.products.map((item) => (
+    <section className="mx-auto max-w-7xl px-4 py-8">
+      <div className="mb-8">
+        <h1 className="text-2xl font-bold">{data.category?.name || slug}</h1>
+
+        <p className="mt-2 text-sm text-gray-500">تعداد محصولات: {data.products.length}</p>
+      </div>
+
+      <div className="flex flex-wrap items-center justify-center gap-8">
+        {data.products.map((item) => {
+          const finalPrice =
+            item.sale > 0 ? item.price - (item.price * item.sale) / 100 : item.price
+
+          return (
             <Link
               href={`/product/${item._id}`}
               key={item._id}
-              className="flex-[0_0_85%] sm:flex-[0_0_45%] lg:flex-[0_0_20%] cursor-pointer"
+              className="flex-[0_0_85%] cursor-pointer sm:flex-[0_0_45%] lg:flex-[0_0_20%]"
             >
-              <div className="bg-white rounded-2xl p-4 h-full shadow">
+              <div className="h-full rounded-2xl bg-white p-4 shadow">
                 <div className="flex justify-center">
                   <Image
                     src={item.media?.[0]?.url}
                     alt={item.name}
                     width={186}
                     height={186}
-                    className=" object-contain h-45 w-auto"
+                    className="h-45 w-auto object-contain"
+                    unoptimized
+                    priority
                   />
                 </div>
 
-                <h3 className="mt-4 text-sm font-bold line-clamp-2">{item.name}</h3>
+                <h2 className="mt-4 line-clamp-2 text-sm font-bold">{item.name}</h2>
 
-                <div className="flex justify-between w-full mt-8">
+                <div className="mt-8 flex w-full justify-between">
                   {item.sale > 0 ? (
-                    <div className="flex justify-between w-full">
-                      <div className="bg-[#a2191f] rounded h-4 min-w-6 px-1 text-white text-xs flex justify-center items-center gap-0/5">
+                    <div className="flex w-full justify-between">
+                      <div className="flex min-w-6 items-center justify-center gap-0.5 rounded bg-[#a2191f] px-1 text-xs text-white h-4">
                         <span>%</span>
                         <span>{item.sale}</span>
                       </div>
 
                       <div>
-                        <div className="flex flex-row justify-end items-center gap-1 w-full">
-                          <div>
-                            {(
-                              Number(item.price) -
-                              (Number(item.price) * Number(item.sale)) / 100
-                            ).toLocaleString()}
-                          </div>
-                          <span className="text-sm"> تومان</span>
+                        <div className="flex items-center justify-end gap-1">
+                          <span>{finalPrice.toLocaleString()}</span>
+
+                          <span className="text-sm">تومان</span>
                         </div>
-                        <div className="w-full flex flex-row justify-end items-center gap-1 text-gray-400 text-sm">
+
+                        <div className="flex items-center justify-end gap-1 text-sm text-gray-400">
                           <del>{item.price.toLocaleString()}</del>
-                          <span className="text-sm"> تومان</span>
+
+                          <span>تومان</span>
                         </div>
                       </div>
                     </div>
                   ) : (
-                    <div className="w-full flex flex-row justify-end items-center gap-1">
+                    <div className="flex w-full items-center justify-end gap-1">
                       <span>{item.price.toLocaleString()}</span>
-                      <span className="text-sm"> تومان</span>
+
+                      <span className="text-sm">تومان</span>
                     </div>
                   )}
                 </div>
               </div>
             </Link>
-          ))}
+          )
+        })}
       </div>
-    </>
+    </section>
   )
 }

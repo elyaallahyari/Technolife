@@ -231,7 +231,7 @@ export default function AddProduct() {
         </div>
       </section>
 
-      <section className="border border-[#f0f0f0] rounded-xl flex flex-col justify-between items-center text-sm">
+      <section className="border border-[#f0f0f0] rounded-xl flex flex-col justify-between items-center text-sm p-3">
         <div className="p-3 bg-[#fcfeff] font-bold w-full rounded-t-xl">تصاویر محصول</div>
 
         <hr className="w-full" />
@@ -247,22 +247,31 @@ export default function AddProduct() {
           onClose={() => setShowGallery(false)}
         />
 
-        <div className="flex flex-row justify-center items-center input cursor-pointer gap-3">
-          <div className="flex flex-row gap-1">
-            {media &&
-              media.map((item) => (
-                <div key={item._id} className="border border-gray-100 rounded">
-                  <Image src={item?.url} width={90} height={90} alt={item?.url} />
-                </div>
-              ))}
-          </div>
+        <div className="flex flex-wrap gap-3">
+          {media?.map((item) => (
+            <div
+              key={item._id}
+              className="border border-[#f0f0f0] rounded-xl overflow-hidden relative w-18 h-18"
+            >
+              <Image
+                unoptimized
+                src={item.url}
+                fill
+                alt={item.alt || item.url}
+                className="object-cover"
+                sizes="72px"
+                priority
+              />
+            </div>
+          ))}
 
-          <div
-            className="flex flex-row justify-center items-center w-full input"
-            onClick={() => setShowGallery(!showGallery)}
+          <button
+            type="button"
+            onClick={() => setShowGallery(true)}
+            className="w-30 h-30 border border-dashed border-gray-300 rounded-xl flex items-center justify-center hover:bg-gray-50 transition"
           >
-            <GrFormAdd />
-          </div>
+            <GrFormAdd size={28} />
+          </button>
         </div>
       </section>
 
