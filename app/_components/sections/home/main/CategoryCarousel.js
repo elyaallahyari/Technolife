@@ -52,7 +52,7 @@ export default function CategoryCarousel() {
               {data.map((item) => (
                 <Link
                   key={item._id}
-                  href={`/${item.en_name}Category`}
+                  href={`/category/${item.en_name}`}
                   className="
                     flex-[0_0_auto]
                     flex

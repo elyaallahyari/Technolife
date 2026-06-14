@@ -11,31 +11,31 @@ const topMobiles = [
     id: 0,
     name: 'سامسونگ',
     image: ImageSamsung,
-    href: '#'
+    href: '/category/iphone'
   },
   {
     id: 1,
     name: 'پوکو',
     image: ImagePoco,
-    href: '#'
+    href: '/category/iphone'
   },
   {
     id: 2,
     name: 'آیفون',
     image: ImageIphone,
-    href: '/iphoneCategory'
+    href: '/category/iphone'
   },
   {
     id: 3,
     name: 'آنر',
     image: ImageHonor,
-    href: '#'
+    href: '/category/iphone'
   },
   {
     id: 4,
     name: 'شیائومی',
     image: ImageXiaomi,
-    href: '#'
+    href: '/category/iphone'
   }
 ]
 
