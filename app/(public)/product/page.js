@@ -7,9 +7,9 @@ export const metadata = {
   description: 'محصولات فروشگاه اینترنتی تکنولایف'
 }
 
-export default async function Product() {
-  await new Promise((resolve) => setTimeout(resolve, 2000))
+export const dynamic = 'force-dynamic'
 
+export default async function Product() {
   return (
     <>
       <Suspense fallback={<Loading />}>
