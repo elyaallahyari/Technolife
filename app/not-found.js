@@ -11,7 +11,7 @@ export default async function NotFound() {
       <h2>Not Found</h2>
       <p>Could not find requested resource</p>
       <Link href="/" className="bg-blue-500 text-white rounded-xl p-3">
-        Return Home
+        بازگشت به صفحه اصلی
       </Link>
     </div>
   )
