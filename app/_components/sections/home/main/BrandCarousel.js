@@ -8,7 +8,7 @@ import { useCallback, useRef } from 'react'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api'
+const API_URL = process.env.NEXT_PUBLIC_API_URL
 
 export default function BrandCarousel() {
   const { data, error, isLoading } = useSWR(`${API_URL}/brand`, fetcher)

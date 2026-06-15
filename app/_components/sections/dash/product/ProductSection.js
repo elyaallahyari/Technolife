@@ -11,7 +11,7 @@ import useSWRMutation from 'swr/mutation'
 
 import MediaLibraryModal from '../modal/MediaLibraryModal'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api'
+const API_URL = process.env.NEXT_PUBLIC_API_URL
 
 const PRODUCT_API = `${API_URL}/product`
 const BRAND_API = `${API_URL}/brand`
