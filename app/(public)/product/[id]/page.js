@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 import ProductGallery from '@/app/_components/sections/product/ProductGallery'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api'
 
 export const revalidate = 600
 

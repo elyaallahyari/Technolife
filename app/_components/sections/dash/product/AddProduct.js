@@ -8,7 +8,7 @@ import { GrFormAdd } from 'react-icons/gr'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api'
 
 export default function AddProduct() {
   const { data: brand } = useSWR(`${API_URL}/brand`, fetcher)

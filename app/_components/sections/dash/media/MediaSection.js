@@ -40,7 +40,7 @@ async function DeleteBrand(url, { arg }) {
   }).then((res) => res.json())
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api'
 
 export default function MediaSection() {
   const [editingItem, setEditingItem] = useState(null)

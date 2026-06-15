@@ -9,7 +9,7 @@ export const metadata = {
   description: 'لیست محصولات دارای تخفیف'
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api'
 
 async function getSaleProducts() {
   const res = await fetch(`${API_URL}/product/sale`, {
