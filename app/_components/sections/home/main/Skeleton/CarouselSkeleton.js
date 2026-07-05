@@ -3,7 +3,7 @@ import Skeleton from '@/app/_components/ui/Skeleton'
 export default function CarouselSkeleton() {
   return (
     <div className="relative w-full">
-      <Skeleton className="w-full aspect-[16/5]" />
+      <Skeleton className="w-full aspect-16/5" />
 
       <div className="flex justify-center gap-2 mt-4">
         {Array.from({ length: 8 }).map((_, i) => (
