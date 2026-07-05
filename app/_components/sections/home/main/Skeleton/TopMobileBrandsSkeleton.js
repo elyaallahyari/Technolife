@@ -8,7 +8,7 @@ export default function TopMobileBrandsSkeleton() {
       <div className="flex gap-6 flex-wrap justify-center">
         {Array.from({ length: 5 }).map((_, i) => (
           <div key={i} className="flex flex-col items-center gap-3">
-            <Skeleton className="w-[180px] h-[180px] rounded-full" />
+            <Skeleton className="w-45 h-45 rounded-full" />
             <Skeleton className="w-20 h-4" />
           </div>
         ))}
