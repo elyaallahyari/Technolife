@@ -2,9 +2,9 @@ import Skeleton from '@/app/_components/ui/Skeleton'
 
 export default function ProductCardSkeleton() {
   return (
-    <div className="bg-white px-4 h-full">
+    <div className="bg-white px-4 p-2 h-full rounded">
       <div className="flex justify-center">
-        <Skeleton className="w-[180px] h-[180px]" />
+        <Skeleton className="w-45 h-45" />
       </div>
 
       <div className="mt-4 space-y-2">
