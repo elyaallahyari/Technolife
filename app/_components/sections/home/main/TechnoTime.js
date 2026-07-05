@@ -13,6 +13,9 @@ import Autoplay from 'embla-carousel-autoplay'
 import { useRef, useCallback } from 'react'
 import SaleTimer from '@/app/_components/ui/SaleTimer'
 import Link from 'next/link'
+import TechnoTimeSkeleton from './Skeleton/TechnoTimeSkeleton'
+import Skeleton from '@/app/_components/ui/Skeleton'
+import ProductCardSkeleton from './Skeleton/ProductCardSkeleton'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
@@ -69,11 +72,11 @@ export default function TechnoTime() {
           </Link>
         </div>
 
-        {isLoading && <p className="text-center text-white py-10">در حال بارگذاری...</p>}
+        {isLoading && <p className="text-center text-sm text-white py-2">در حال بارگذاری...</p>}
 
-        {error && <p className="text-center text-red-300 py-10">خطا در دریافت اطلاعات</p>}
+        {error && <p className="text-center text-red-300 py-2">خطا در دریافت اطلاعات</p>}
 
-        {data && (
+        {data ? (
           <>
             <div className="overflow-hidden p-2 mt-4" ref={emblaRef} dir="rtl">
               <div className="flex gap-2">
@@ -200,6 +203,23 @@ export default function TechnoTime() {
               <FiChevronLeft size={20} />
             </button>
           </>
+        ) : (
+          <div>
+            <p className="text-center text-white text-sm">
+              ابتدا وارد داشبورد ادمین شوید و اطلاعات را وارد کنید.
+            </p>
+            <div className="p-8">
+              <section>
+                <div className="flex gap-2 px-2">
+                  {Array.from({ length: 6 }).map((_, i) => (
+                    <div key={i} className="flex-[0_0_16%]">
+                      <ProductCardSkeleton />
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </div>
+          </div>
         )}
       </section>
     </div>
