@@ -60,7 +60,7 @@ export default function LaptopCategorySection() {
 
         {error && <p className="text-center text-red-300 py-10">خطا در دریافت اطلاعات</p>}
 
-        {data && (
+        {data ? (
           <>
             <div className="overflow-hidden p-2 mt-4" ref={emblaRef} dir="rtl">
               <div className="flex gap-2">
@@ -136,6 +136,10 @@ export default function LaptopCategorySection() {
               <FiChevronLeft size={20} />
             </button>
           </>
+        ) : (
+          <p className="text-center text-sm">
+            ابتدا وارد داشبورد ادمین شوید و اطلاعات را وارد کنید.
+          </p>
         )}
       </section>
     </div>
