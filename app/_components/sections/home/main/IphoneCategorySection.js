@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { useRef, useCallback } from 'react'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
+import ProductSectionSkeleton from './Skeleton/IphoneCategorySectionSkeleton'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
@@ -60,7 +61,7 @@ export default function IphoneCategorySection() {
 
         {error && <p className="text-center text-red-300 py-10">خطا در دریافت اطلاعات</p>}
 
-        {data && (
+        {data ? (
           <>
             <div className="overflow-hidden p-2 mt-4" ref={emblaRef} dir="rtl">
               <div className="flex gap-2">
@@ -170,6 +171,10 @@ export default function IphoneCategorySection() {
               <FiChevronLeft size={20} />
             </button>
           </>
+        ) : (
+          <p className="text-center text-sm">
+            ابتدا وارد داشبورد ادمین شوید و اطلاعات را وارد کنید.
+          </p>
         )}
       </section>
     </div>
