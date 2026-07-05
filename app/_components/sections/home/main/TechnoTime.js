@@ -204,22 +204,9 @@ export default function TechnoTime() {
             </button>
           </>
         ) : (
-          <div>
-            <p className="text-center text-white text-sm">
-              ابتدا وارد داشبورد ادمین شوید و اطلاعات را وارد کنید.
-            </p>
-            <div className="p-8">
-              <section>
-                <div className="flex gap-2 px-2">
-                  {Array.from({ length: 6 }).map((_, i) => (
-                    <div key={i} className="flex-[0_0_16%]">
-                      <ProductCardSkeleton />
-                    </div>
-                  ))}
-                </div>
-              </section>
-            </div>
-          </div>
+          <p className="text-center text-white text-sm">
+            ابتدا وارد داشبورد ادمین شوید و اطلاعات را وارد کنید.
+          </p>
         )}
       </section>
     </div>
