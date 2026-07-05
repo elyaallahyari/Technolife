@@ -6,6 +6,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import { useCallback, useRef } from 'react'
 import Link from 'next/link'
+import CategoryCarouselSkeleton from './Skeleton/CategoryCarouselSkeleton'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
@@ -45,7 +46,7 @@ export default function CategoryCarousel() {
 
       {error && <p className="text-center py-10 text-red-500">مشکلی پیش آمده...</p>}
 
-      {data && (
+      {data ? (
         <>
           <div className="relative max-w-330 mx-auto px-4 overflow-hidden" ref={emblaRef} dir="rtl">
             <div className="flex items-center gap-16 p-4 my-9">
@@ -125,6 +126,11 @@ export default function CategoryCarousel() {
             →
           </button>
         </>
+      ) : (
+        <div>
+          <p className="text-center">ابتدا وارد داشبورد ادمین شوید و اطلاعات را وارد کنید.</p>
+          <CategoryCarouselSkeleton />
+        </div>
       )}
     </div>
   )
